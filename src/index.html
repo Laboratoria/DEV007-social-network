@@ -25,28 +25,27 @@
     <div class="form-background">
     <h1>Iniciar sesión</h1>
    <form>
-    <input type="text" name="firstname" placeholder="Usuario">
+    <input type="text" class="barra" name="user" placeholder="Usuario">
     <br>
-    <input type="text" name="lastname" placeholder="Email">
+    <input type="text" class="barra" name="Email" placeholder="Email">
     <br><br>
     <input type="submit" value="Ingresar">
   </form>
     <p class="sign-up-divider">o inicia con</p>
    <div class="social-media">
      <ul class="social-media-icons">
-       <li class="google"><a href="#"><i class="fab fa-google-plus-g">google</i></a></li>
+       <li class="google"><a href="#"><i id="login-google">google</i></a></li>
        <li class="facebook"><a href="#"><i class="fab fa-facebook-f">facebook</i></a></li>
       
      </ul>
+     <p><button id="button-logout" class="hidden">Cerrar sesion</button></p>
    </div> 
   </div>
   <div class="login">
     <p>¿Necesitas una cuenta?<a href="#">Registrarse</a></p>
   </div>
   </div>
-
-
-
+ 
 
 <!-- Modal
 <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -67,5 +66,6 @@
   </div>
 </div> 
  -->
+ <script src="app.js" type="module"></script>
 </body>
 </html>
