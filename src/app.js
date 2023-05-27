@@ -1,19 +1,19 @@
+import {saveForm} from './firebase.js'
+window.addEventListener('DOMContentLoaded',()=>{
+ 
 
-import {initializeApp} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-//TODO: Add SDKs for Firebase products that you want to use   https://firebase.google.com/docs/web/setup#available-libraries   -->
-import {initializeApp} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";  // autenticacion -->
-import {initializeApp} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
+})
+const formLogin = document.getElementById('form-login')
+
+formLogin.addEventListener('submit', (e) => {
+  e.preventDefault()
+  //console.log('Login');
+  const user = formLogin['user'];
+  const mail = formLogin['mail'];
+
+  //console.log(user.value, mail.value); //guardar
+  saveForm(user.value, mail.value)
 
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCCZY1nDDjkpqWJc7LPlwC9nbApIgwLFlY",
-  authDomain: "social-network-51f1c.firebaseapp.com",
-  projectId: "social-network-51f1c",
-  storageBucket: "social-network-51f1c.appspot.com",
-  messagingSenderId: "61634618248",
-  appId: "1:61634618248:web:5cd97c87778390d0d9503d",
-  measurementId: "G-C16EMLGNV9"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+  formLogin.reset()  //limpia el formulario luego de su envio
+})
