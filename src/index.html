@@ -8,19 +8,121 @@
   <title>Document</title>
 
 
-  <!--Barra nevegacion-->
-  <header class="header">
-    <ul>
-      <li><a class="active" href="#">Home</a></li>
-      <li><a href="#">Iniciar Sesión</a></li>
-      <li><a href="#" data-toggle="modal" data.target="signup">Cerrar Sesión</a></li>
-      <li style="float:right"><a href="about.html">Registrarme</a></li>
-    </ul>
-  </header>
+
 
 </head>
 <body>
 
+    <!--Barra nevegacion-->
+    <header class="header">
+      <ul>
+        <li><a class="active" href="#">Home</a></li>
+        <li><a id="myBtnLogin" href="#" data-toggle="modal" data-target="#signupModal">Iniciar Sesión</a></li>
+        <li><a id="myBtnLoginUp" href="#" data-toggle="modal" data-target="#signoffModal" >Cerrar Sesión</a></li>
+        <li style="float:right"><a href="about.html">Registrarme</a></li>
+      </ul>
+    </header>
+
+<!-- MODAL LOGIN -->
+    <div id="signupModal" class="signup">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Iniciar sesion</h2>
+
+        <form id="form-login">
+        <input type="text" class="barra" id="user" placeholder="Usuario">
+        <br>
+        <input type="text" class="barra" id="mail" placeholder="Email">
+     
+
+        <div class="modal-buttons">
+          <button type="button" class="close-btn">Cerrar</button>
+          <button type="submit" class="submit-btn">Enviar</button>
+        </div>
+        </form>
+
+        <p class="sign-up-divider">o inicia con</p>
+        <div class="social-media">
+          <ul class="social-media-icons">
+            <li class="google"><a href="#"><i id="login-google">google</i></a></li>
+           <!-- <li class="facebook"><a href="#"><i class="fab fa-facebook-f">facebook</i></a></li> -->    
+      </div>
+    </div>
+    </div>
+
+
+    <!-- MODAL LOGOUT -->
+    <div id="signoffModal" class="signoff">
+      <div class="modal-content">
+
+
+        <h2>Crear cuenta</h2>
+
+      <form id="form-loginup">
+        <input type="text" class="barra" id="name" placeholder="Nombres" >
+        <input type="text" class="barra" id="last-name" placeholder="Apellidos" >
+        <br>
+        <input type="text" class="barra" id="email" placeholder="Email" >
+        <br>
+        <input type="text" class="barra" id="password" placeholder="contraseña" > 
+
+  <div class="modal-buttons">
+          <button type="button" class="close-btn">Cerrar</button>
+  </div>  
+       
+      </form>
+
+
+      </div>
+
+    </div>
+
+    <script>
+      const modal = document.getElementById("signupModal");
+const btnlogin = document.getElementById("myBtnLogin");
+const span = document.getElementsByClassName("close")[0];
+let closeBtn = document.getElementsByClassName("close-btn")[0];
+
+
+btnlogin.onclick = function() {
+  modal.style.display = "block";
+}
+
+//btnsignoff.onclick = function() {
+//  modalup.style.display = "block";
+//}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+closeBtn.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+  const modalup =document.getElementById("signoffModal");
+  const btnsignoff = document.getElementById("myBtnLoginUp");
+ 
+
+
+ btnsignoff.onclick = function() {
+ modalup.style.display = "block";
+}
+
+
+
+window.onclick = function(event) {
+  if (event.target == modalup){
+  modalup.style.display = "none";
+  }
+}
+    </script>
+<!--
   <div class="signup">
     <div class="form-background">
     <h1>Iniciar sesión</h1>
@@ -45,9 +147,7 @@
     <p>¿Necesitas una cuenta?<a href="#">Registrarse</a></p>
   </div>
   </div>
- 
-
-  
+  --> 
 
 <!-- Modal
 <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

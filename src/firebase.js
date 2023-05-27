@@ -20,5 +20,5 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export const saveForm = (user, mail) => 
-addDoc(collection(db, 'logingit '),{user,mail} );
+addDoc(collection(db, 'login '),{user,mail} ); //recuerde el espacio
 //console.log(user, mail);
