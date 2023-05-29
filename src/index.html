@@ -18,8 +18,8 @@
       <ul>
         <li><a class="active" href="#">Home</a></li>
         <li><a id="myBtnLogin" href="#" data-toggle="modal" data-target="#signupModal">Iniciar Sesión</a></li>
-        <li><a id="myBtnLoginUp" href="#" data-toggle="modal" data-target="#signoffModal" >Cerrar Sesión</a></li>
-        <li style="float:right"><a href="about.html">Registrarme</a></li>
+        <li><a href="#" >Cerrar Sesión</a></li>
+        <li style="float:right"><a id="myBtnLoginUp" href="#" data-toggle="modal" data-target="#signoffModal">Registrarme</a></li>
       </ul>
     </header>
 
@@ -67,7 +67,7 @@
         <input type="text" class="barra" id="password" placeholder="contraseña" > 
 
   <div class="modal-buttons">
-          <button type="button" class="close-btn">Cerrar</button>
+          <button type="button" class="close-bton">Cerrar</button>
   </div>  
        
       </form>
@@ -81,7 +81,7 @@
       const modal = document.getElementById("signupModal");
 const btnlogin = document.getElementById("myBtnLogin");
 const span = document.getElementsByClassName("close")[0];
-let closeBtn = document.getElementsByClassName("close-btn")[0];
+const closeBtn = document.getElementsByClassName("close-btn")[0];
 
 
 btnlogin.onclick = function() {
@@ -107,20 +107,18 @@ window.onclick = function(event) {
 
   const modalup =document.getElementById("signoffModal");
   const btnsignoff = document.getElementById("myBtnLoginUp");
- 
+  const closeBton = document.getElementsByClassName("close-bton")[0];
 
 
  btnsignoff.onclick = function() {
  modalup.style.display = "block";
 }
 
-
-
-window.onclick = function(event) {
-  if (event.target == modalup){
+closeBton.onclick = function() {
   modalup.style.display = "none";
-  }
 }
+
+
     </script>
 <!--
   <div class="signup">

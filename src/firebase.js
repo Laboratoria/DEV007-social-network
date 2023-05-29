@@ -1,8 +1,8 @@
 
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 //TODO: Add SDKs for Firebase products that you want to use   https://firebase.google.com/docs/web/setup#available-libraries   -->
-//import { } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";  // autenticacion -->
 import { getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";  // autenticacion -->
 
 
 const firebaseConfig = {
@@ -17,8 +17,14 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
 const db = getFirestore(app);
 
-export const saveForm = (user, mail) => 
-addDoc(collection(db, 'login '),{user,mail} ); //recuerde el espacio
+export const saveForm = (user, mail) =>
+ 
+addDoc(collection(db, 'login '),{user,mail} 
+); //recuerde el espacio
 //console.log(user, mail);
+export const auth = getAuth(app);
+
+
