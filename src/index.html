@@ -18,8 +18,8 @@
       <ul>
         <li><a class="active" href="#">Home</a></li>
         <li><a id="myBtnLogin" href="#" data-toggle="modal" data-target="#signupModal">Iniciar Sesión</a></li>
-        <li><a href="#" >Cerrar Sesión</a></li>
-        <li style="float:right"><a id="myBtnLoginUp" href="#" data-toggle="modal" data-target="#signoffModal">Registrarme</a></li>
+        <li><a id="myBtnLoginUp" href="#" data-toggle="modal" data-target="#signoffModal">Registrarme</a></li>
+        <li style="float:right"><a href="#" >Cerrar Sesión</a></li>
       </ul>
     </header>
 
@@ -30,9 +30,9 @@
           <h2>Iniciar sesion</h2>
 
         <form id="form-login">
-        <input type="text" class="barra" id="user" placeholder="Usuario">
+        <input type="text" class="barra" id="email" placeholder="Correo Electronico">
         <br>
-        <input type="text" class="barra" id="mail" placeholder="Email">
+        <input type="text" class="barra" id="password" placeholder="Contraseña">
      
 
         <div class="modal-buttons">
@@ -62,11 +62,12 @@
         <input type="text" class="barra" id="name" placeholder="Nombres" >
         <input type="text" class="barra" id="last-name" placeholder="Apellidos" >
         <br>
-        <input type="text" class="barra" id="email" placeholder="Email" >
+        <input type="text" class="barra" id="mail" placeholder="Email" >
         <br>
-        <input type="text" class="barra" id="password" placeholder="contraseña" > 
+        <input type="text" class="barra" id="user" placeholder="contraseña" > 
 
   <div class="modal-buttons">
+          <button type="submit" class="submit-btn">Enviar</button>
           <button type="button" class="close-bton">Cerrar</button>
   </div>  
        
@@ -82,15 +83,11 @@
 const btnlogin = document.getElementById("myBtnLogin");
 const span = document.getElementsByClassName("close")[0];
 const closeBtn = document.getElementsByClassName("close-btn")[0];
-
+const formLogin= document.getElementById("form-login");
 
 btnlogin.onclick = function() {
   modal.style.display = "block";
 }
-
-//btnsignoff.onclick = function() {
-//  modalup.style.display = "block";
-//}
 
 span.onclick = function() {
   modal.style.display = "none";
@@ -105,6 +102,14 @@ window.onclick = function(event) {
   }
 }
 
+formLogin.addEventListener("submit", function(event){
+  event.preventDefault();
+
+  //cerra despues de enviar
+  modal.style.display = "none";
+})
+
+// FORMULARIO DE CREAR CUENTA
   const modalup =document.getElementById("signoffModal");
   const btnsignoff = document.getElementById("myBtnLoginUp");
   const closeBton = document.getElementsByClassName("close-bton")[0];

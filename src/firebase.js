@@ -20,9 +20,9 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-export const saveForm = (user, mail) =>
+export const saveForm = (email, password) =>
  
-addDoc(collection(db, 'login '),{user,mail} 
+addDoc(collection(db, 'login '),{email, password} 
 ); //recuerde el espacio
 //console.log(user, mail);
 export const auth = getAuth(app);

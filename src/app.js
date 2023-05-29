@@ -7,28 +7,37 @@ window.addEventListener('DOMContentLoaded',()=>{
 })
 const formLogin = document.querySelector('#form-login')
 
-formLogin.addEventListener('submit', (e) => {
+formLogin.addEventListener('submit', async (e) => {
   e.preventDefault()
   //console.log('Login');
  /* const user = formLogin['user'];
   const mail = formLogin['mail'];*/
-  const user = document.querySelector('#user').value;
-  const mail =document.querySelector('#mail').value;
+  const email = document.querySelector('#email').value;
+  const password =document.querySelector('#password').value;
 
-  console.log(user, mail); //guardar
+  console.log(email, password);
+  //console.log(user, mail); //guardar
+  saveForm(email, password);
+try{
+    const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
+    //.then((userCredentials) => {
+    console.log(userCredentials);
+     // const user = userCredential.user;
+     // console.log(user)
 
- saveForm(user, mail)
+} catch (error){
+  console.log(error.message);
+  console.log(error.code);
 
-
-    createUserWithEmailAndPassword(auth, user, mail)
-    .then((userCredential) => {
-
-      const user = userCredential.user;
-      console.log(user)
-  })
-       
- 
-        
-
+  if (error.code === 'auth/email-already-in-use') {
+    alert('Email already in use')
+   } else if (error.code === 'auth/invalid-email') {
+    alert('Invalid email')
+   } else if (error.code === 'auth/weak-password') {
+ alert('auth/weak-password')
+   } else if (error.code){
+  alert('álgo salio mal');
+   }
+}
   formLogin.reset()  //limpia el formulario luego de su envio
 })
