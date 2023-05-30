@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Registro e inicio de sesión con Firebase</title>
+    <title>Barra Superior</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#" data-toggle="moda">TRAVELING PETS</a></li>
+        <li><a href="#" data-toggle="modal">INICIAR SESION</a></li>
+      </ul>
+    </nav>
+  </header>
+<!-- Ventana modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <a href="#" class="close">&times;</a>
+    <h2>Inicio de Sesion</h2>
+    <form id="loginForm">
+      <input type="text" id="loginEmail" placeholder="Correo electrónico"
+        required>
+      <input type="password" id="loginPassword" placeholder="Contraseña"
+        required>
+      <button class="buttonInicioSesion" type="submit">Iniciar Sesion</button>
+      <button id="googleSignIn">Iniciar sesión con Google</button>
+    </form>
+  </div>
+</div>
+
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <h1>Registro e inicio de sesión con Firebase</h1>
     <section id="vista1">
-      <h2>Registro</h2>
+      <br>
+      <br>
       <form id="registerForm">
-        <input type="text" id="registerEmail" placeholder="Correo electrónico"
+        <input type="text" id="name" placeholder="  Nombres"
           required>
-        <input type="password" id="registerPassword" placeholder="Contraseña"
+          <input type="text" id="last name" placeholder="  Apellidos"
           required>
-        <button type="submit">Registrarse</button>
-      </form>
-    </section>
-    <section id="vista2">
-      <h2>Iniciar sesión</h2>
-      <form id="loginForm">
-        <input type="text" id="loginEmail" placeholder="Correo electrónico"
+        <input type="text" id="registerEmail" placeholder="  Correo electrónico"
           required>
-        <input type="password" id="loginPassword" placeholder="Contraseña"
+        <input type="password" id="registerPassword" placeholder="  Contraseña"
           required>
-        <button type="submit">Iniciar sesión</button>
+        <button type="submit">Registrarme</button>
       </form>
     </section>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>

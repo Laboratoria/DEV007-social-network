@@ -1,37 +1,125 @@
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
+  background-color: #848181; 
+}
+/* Estilos para la barra superior */
+header {
+  background-color: #333;
+  height: 50px;
   
-  h1 {
-    text-align: center;
-  }
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /*separar los elementos */
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  color: #f5f2f2;
+  text-decoration: none;
+  line-height: 50px;
+}
+
+nav ul li a:hover {
+  border-bottom: 2px solid  #629be1;
+}
+/* Estilos específicos para la ventana modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #629be1;
+  border-radius: 100px; 
+
+}
+
+.modal:target {
+  display: flex;
+
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  width: 60%;
+  max-width: 600px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 100px;
+}
+.close:hover,
+.close:focus {
+  color: #090909;
+}
+.buttonInicioSesion {
+  border-radius: 100px;
+  background-color: #629be1;
+  margin-bottom: 10px;
+  height: 25px;
+  border-radius: 100px;
+}
+#googleSignIn {
+  border-radius: 100px;
+  background-color: #629be1;
+  margin-bottom: 10px;
+  height: 25px;
+  border-radius: 100px;
+
+}
+
+#vista1 {
+  display: flex;
+  justify-content: space-between; 
+  align-items: flex-start;
+  background-image: url("./imagenes/imgn.jpg");
+  background-size: 50%;
+  background-position: left 1px;
+  background-repeat: no-repeat;
+  height: 900px;
+}
+
+#vista1 h2 {
+  margin-top: 20px; 
+  margin-right: -100px; /* Alinear a la derecha */
+}
+
+#vista1 form {
+  margin-top: 40px; 
+  width: 50%; 
+  margin-right: -100px; /* Alinear a la derecha */
+}
+
+#vista1 input[type="text"],
+#vista1 input[type="password"] {
+  width: 80%;
+  margin-bottom: 10px;
+  height: 20px;
+  border-radius: 100px;
+}
+
+#vista1 button {
+  width: 81%;
+  background-color: #629be1;
+  height: 30px;
+  border-radius: 100px;
   
-  h2 {
-    margin-top: 40px;
-  }
-  
-  form {
-    margin-top: 20px;
-  }
-  
-  input[type="text"],
-  input[type="password"] {
-    display: block;
-    margin-bottom: 10px;
-    width: 100%;
-    padding: 5px;
-  }
-  
-  button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
+}
+
