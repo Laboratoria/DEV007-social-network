@@ -7,7 +7,7 @@ margin: 0px;
 header{
     font-size: 18px;
 }
-ul {
+.navbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -123,6 +123,7 @@ li a:hover:not(.active) {
     display: inline-block;
     font-size: 14px;
     cursor: pointer;
+    width:47%;
 
   }
   .close-bton {
@@ -136,6 +137,7 @@ li a:hover:not(.active) {
     display: inline-block;
     font-size: 14px;
     cursor: pointer;
+    width:50%;
   }
   
   .submit-btn {
@@ -148,7 +150,29 @@ li a:hover:not(.active) {
     display: inline-block;
     font-size: 14px;
     cursor: pointer;
+    width:47%;
   }
+  .social-media{
+    width:100%;
+    columns:2;
+  }
+  .google{
+    width:50%;
+  }
+
+
+.list-group-item{
+ 
+  width: 50%;
+  border-style:ridge;
+  
+  list-style-type: none;
+  
+  overflow: hidden;
+  background-color:#4CAF50;
+
+
+}
   
   /* Estilos para pantallas más pequeñas */
   @media screen and (max-width: 600px) {
