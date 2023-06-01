@@ -39,7 +39,7 @@ nav ul li a:hover {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #629be1;
+  background-color: #5f6162;
   border-radius: 100px; 
 
 }
@@ -70,19 +70,29 @@ nav ul li a:hover {
   color: #090909;
 }
 .buttonInicioSesion {
-  border-radius: 100px;
-  background-color: #629be1;
+  border-radius: 50px; 
+  background-color: #454647;
   margin-bottom: 10px;
   height: 25px;
-  border-radius: 100px;
+}
+.buttonInicioSesion:hover {
+  background-color: #639bdf; /* Establece el color al pasar el mouse por encima del botón */
 }
 #googleSignIn {
-  border-radius: 100px;
-  background-color: #629be1;
-  margin-bottom: 10px;
+  background-image: url('./imagenes/google.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   height: 25px;
-  border-radius: 100px;
-
+  width: 200px
+}
+#githubSignIn{
+  background-image: url('./imagenes/github.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 25px;
+  width: 200px
 }
 
 #vista1 {
@@ -122,4 +132,3 @@ nav ul li a:hover {
   border-radius: 100px;
   
 }
-

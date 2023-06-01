@@ -36,25 +36,29 @@ firebase.initializeApp(firebaseConfig);
 var auth = firebase.auth();
 
 // Registrar evento para el formulario de registro
+const formularioRegister = document.querySelector("#registerForm");
 document.getElementById("registerForm").addEventListener("submit", function(event) {
   event.preventDefault(); // Evitar que se recargue la página
 
   var email = document.getElementById("registerEmail").value;
   var password = document.getElementById("registerPassword").value;
-
+ 
   // Crear un nuevo usuario
   auth.createUserWithEmailAndPassword(email, password)
     .then(function() {
       alert("Registro exitoso");
       alert ("inicia sesion con la cuenta registrada");
+      formularioRegister.reset();
     })
     .catch(function(error) {
       alert("Error: " + error.message);
     });
+  
 });
 
 
 // Registrar evento para el formulario de inicio de sesión
+const formularioLogin = document.querySelector("#loginForm");
 document.getElementById("loginForm").addEventListener("submit", function(event) {
   event.preventDefault(); // Evitar que se recargue la página
 
@@ -65,18 +69,19 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
   auth.signInWithEmailAndPassword(email, password)
     .then(function() {
       alert("Inicio de sesión exitoso");
+      formularioLogin.reset();
     })
     .catch(function(error) {
       alert("Error: " + error.message);
     });
 });
 
-var googleProvider = new firebase.auth.GoogleAuthProvider();
+var google = new firebase.auth.GoogleAuthProvider();
 
 // Registrar evento para el botón de inicio de sesión con Google
 document.getElementById("googleSignIn").addEventListener("click", function() {
   // Iniciar el proceso de inicio de sesión con Google
-  auth.signInWithPopup(googleProvider)
+  auth.signInWithPopup(google)
     .then(function(result) {
       // El inicio de sesión con Google fue exitoso
       var user = result.user;
@@ -92,3 +97,26 @@ document.getElementById("googleSignIn").addEventListener("click", function() {
       alert("Error al iniciar sesión con Google: " + error.message);
     });
 });
+
+var github = new firebase.auth.GithubAuthProvider();
+
+// Registrar evento para el botón de inicio de sesión con GitHub
+document.getElementById("githubSignIn").addEventListener("click", function() {
+  // Iniciar el proceso de inicio de sesión con GitHub
+  auth.signInWithPopup(github)
+    .then(function(result) {
+      // El inicio de sesión con GitHub fue exitoso
+      var user = result.user;
+      // Accede a la información del usuario
+      var displayName = user.displayName;
+      var email = user.email;
+      var photoURL = user.photoURL;
+      // Realiza las acciones que necesites con la información del usuario
+      alert("Inicio de sesión exitoso con GitHub: " + displayName);
+    })
+    .catch(function(error) {
+      // Ocurrió un error durante el inicio de sesión con GitHub
+      alert("Error al iniciar sesión con GitHub: " + error.message);
+    });
+});
+
