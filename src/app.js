@@ -62,6 +62,8 @@ const loginCheck = user =>{
   }
 }
 
+
+
 onAuthStateChanged(auth, async (user) => {
 loginCheck(user);
   

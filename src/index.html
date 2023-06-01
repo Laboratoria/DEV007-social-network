@@ -23,11 +23,39 @@
       </ul>
     </header>
 
-    <div class="container">
+   
+
+        <form id="task-form">
+         <h1>Bienvenido a la Red Social</h1>
+          <label for="title"> Title:</label> 
+         <p><input type="text" placeholder="Task Title" id="task-title"> </p>
+         
+         <label for="title">Descripcion:</label>    
+           <p>   <textarea id="task-content" rows="3" placeholder="Escribe tu publicación"></textarea></p>
+              <button id="btn-task-save">Publicar</button>
+            </form>
+            
+              <!-- Aquí se mostrarán las publicaciones -->
+              <div id="task-container"></div>
+       
+       <!--   <textarea id="post-content" placeholder="Escribe tu publicación"></textarea>
+          <button onclick="createPost()">Publicar</button>  -->
+
+           <div class="container">
       <div class="row">
+        <h2>POSTS</h2> 
         <ul class="list-group posts"></ul>
-      </div>
-    </div>
+    <div class="caja">
+     
+        </div>
+        </div>
+        </div>
+        
+          <!-- Aquí se mostrarán las publicaciones -->
+     
+         
+           
+
 
 <!-- MODAL LOGIN -->
     <div id="signupModal" class="signup">

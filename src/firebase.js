@@ -1,9 +1,9 @@
 
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 //TODO: Add SDKs for Firebase products that you want to use   https://firebase.google.com/docs/web/setup#available-libraries   -->
-import { getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";  // autenticacion -->
-
+ 
 //import {  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"
 
 
@@ -32,3 +32,12 @@ onAuthStateChanged(auth, async (user) => {
 console.log(user);
 })
 
+//INFORMACION DE LOS POST QUE EL USUARIO POSTEA
+
+  export const saveTask = (title, content) => {
+  addDoc(collection(db, 'posts'),{title,content});
+   // console.log(title,description)
+
+ //  export const getTasks = () => getDocs(collection(db, 'posts'));
+   //exportconst onGetTask = ( => onS)
+  }
