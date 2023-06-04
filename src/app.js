@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";  // autenticacion -->
-import { getDocs, collection } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { collection, onSnapshot} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 import {auth, saveForm, db} from './firebase.js';
 import { setupPosts } from './postList.js';
@@ -47,7 +47,8 @@ logout.addEventListener('click', async () => {
 
 //APARECER Y DESARECER VISTAS
 const loggedOutLinks = document.querySelectorAll('.logged-out');
-const loggedInLinks = document.querySelectorAll('.logged-in');
+const loggedInLinks = document.querySelectorAll('.logged-in');  //cerrar sesion
+const containerArea = document.querySelectorAll('.container-text');
 //console.log(loggedInLinks)
 //console.log(loggedOutLinks)
 
@@ -55,7 +56,10 @@ const loginCheck = user =>{
   if (user){
     loggedInLinks.forEach(link => link.style.display = 'block');  
     loggedOutLinks.forEach(link => link.style.display = 'none');
+    containerArea.forEach(link => link.style.display = 'block')
   }else{
+    containerArea.forEach(link => link.style.display = 'none')
+
     loggedInLinks.forEach(link => link.style.display = 'none');  
     loggedOutLinks.forEach(link => link.style.display = 'block');  
 
@@ -64,19 +68,20 @@ const loginCheck = user =>{
 
 
 
-onAuthStateChanged(auth, async (user) => {
+onAuthStateChanged(auth, async (user) => {   
 loginCheck(user);
   
   if (user) {
-const querySnapshot = await getDocs(collection(db, 'posts'));
-setupPosts(querySnapshot.docs)
-//console.log(querySnapshot.docs);
-  }else{
+ onSnapshot(collection(db, 'posts'), (querySnapshot) => {
+  setupPosts(querySnapshot.docs);
+
+
+//console.log(querySnapshot.docs); imprime el array con los posts, luego de iniciar sesion
+})}else{
  setupPosts([]);
   }
   loginCheck(user)
 })
-
 
 
 
