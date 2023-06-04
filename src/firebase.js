@@ -1,7 +1,7 @@
 
 import {initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 //TODO: Add SDKs for Firebase products that you want to use   https://firebase.google.com/docs/web/setup#available-libraries   -->
-import { getFirestore, collection, addDoc, deleteDoc, doc} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, deleteDoc, doc, getDoc, updateDoc} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { getAuth, onAuthStateChanged,  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";  // autenticacion -->
  
 //import {  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"
@@ -43,3 +43,8 @@ console.log(user);
 
  //export const deleteTask = id => console.log(id);
 export const deleteTask = id => deleteDoc(doc(db, 'posts', id))
+
+export const getTask = id => getDoc(doc(db, 'posts', id));
+
+export const updateTask = (id, newFields) => updateDoc (doc(db, 'posts', id), newFields)
+

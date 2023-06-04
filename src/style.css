@@ -22,10 +22,12 @@ header{
 
 
 }
-div.caja{
+/*div.caja{
 
-  background-color:#4CAF50;
-}
+  background-color:#4CAF50; 
+} */
+
+
 .navbar {
     list-style-type: none;
     margin: 0;
@@ -181,7 +183,8 @@ margin-left: 50%;
     columns:2;
   }
 .sign-up-divider{
-  background-color: #4CAF50;
+/*  background-color: #4CAF50;  */
+
   text-align: center;
   font-size: 18px;
 }
@@ -213,19 +216,27 @@ margin-left: 50%;
   }
 
 
-.list-group-item{
+.list-group-item{     /* Lista de Posts*/
  
   width: 90%;
   left: 0px;
   right: 0px;;
   border-style:ridge;
-  
+  margin: 3%;
   list-style-type: none;
-  
+ text-align: center;
   overflow: hidden;
   background-color:#ffffff;
 
 
+}
+
+.btn-delete, .btn-edit{
+  float:right;
+}
+
+.bottons{
+  background-color: #4CAF50;
 }
   
   /* Estilos para pantallas más pequeñas */
