@@ -14,17 +14,37 @@
 <body>
 
     <!--Barra nevegacion-->
+  
+
     <header class="header">
+      <section id="vista1">
       <ul class="navbar">
-        <li><a class="active" href="#">Home</a></li>
+        <li><a class="active" href="#">TRAVELING PETS</a></li>
         <li class="nav-item logged-out" > <a id="myBtnLogin" href="#" data-toggle="modal" data-target="#signupModal">Iniciar Sesión</a></li>
-        <li class="nav-item" ><a  class="nav-link logged-out" id="myBtnLoginUp" href="#" data-toggle="modal" data-target="#signoffModal">Registrarme</a></li>
-        <li style="float:right"><a class="nav-link logged-in" href="#" id="logout">Cerrar Sesión</a></li>
+      <!-- <li class="nav-item" ><a  class="nav-link logged-out" id="myBtnLoginUp" href="#" data-toggle="modal" data-target="#signoffModal">Registrarme</a></li>
+   --> 
       </ul>
+      <form id="form-loginup">
+        <h2>Registrarme</h2>
+        <input type="text" class="barra" id="name" placeholder="Nombres" >
+        <input type="text" class="barra" id="last-name" placeholder="Apellidos" >
+        <br>
+        <input type="text" class="barra" id="email" placeholder="Email" >
+        <br>
+        <input type="text" class="barra" id="password" placeholder="contraseña" > 
+
+  <div class="modal-buttons">
+          <button type="submit" class="submit-btn">Enviar</button>
+          <button type="button" class="close-bton">Cerrar</button>
+  </div>  
+       
+      </form>
+    </section>
+    <ul class="navbar">
+      <li style="float:right"><a class="nav-link logged-in" href="#" id="logout">Cerrar Sesión</a></li>
+    </ul>
     </header>
-
-   
-
+    
         <form id="task-form">
           <div class="container-text">
          <h1>Bienvenido a la Red Social</h1>

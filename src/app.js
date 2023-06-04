@@ -49,6 +49,7 @@ logout.addEventListener('click', async () => {
 const loggedOutLinks = document.querySelectorAll('.logged-out');
 const loggedInLinks = document.querySelectorAll('.logged-in');  //cerrar sesion
 const containerArea = document.querySelectorAll('.container-text');
+const vista1 = document.querySelectorAll('#vista1');
 //console.log(loggedInLinks)
 //console.log(loggedOutLinks)
 
@@ -57,9 +58,10 @@ const loginCheck = user =>{
     loggedInLinks.forEach(link => link.style.display = 'block');  
     loggedOutLinks.forEach(link => link.style.display = 'none');
     containerArea.forEach(link => link.style.display = 'block')
+    vista1.forEach(link => link.style.display = 'none');
   }else{
     containerArea.forEach(link => link.style.display = 'none')
-
+vista1.forEach(link => link.style.display = 'block');
     loggedInLinks.forEach(link => link.style.display = 'none');  
     loggedOutLinks.forEach(link => link.style.display = 'block');  
 
