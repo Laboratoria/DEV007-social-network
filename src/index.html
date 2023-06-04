@@ -2,51 +2,72 @@
 <html>
   <head>
     <title>Barra Superior</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#" data-toggle="moda">TRAVELING PETS</a></li>
-        <li><a href="#" data-toggle="modal">INICIAR SESION</a></li>
-      </ul>
-    </nav>
-  </header>
-<!-- Ventana modal -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <a href="#" class="close">&times;</a>
-    <h2>Inicio de Sesion</h2>
-    <form id="loginForm">
-      <input type="text" id="loginEmail" placeholder="Correo electrónico"
-        required>
-      <input type="password" id="loginPassword" placeholder="Contraseña"
-        required>
-      <button class="buttonInicioSesion" type="submit">Iniciar Sesion</button>
-      <button id="googleSignIn"></button>
-      <button id="githubSignIn"></button>
-
-    </form>
-  </div>
-</div>
-
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <section id="vista1">
-      <br>
-      <br>
-      <form id="registerForm">
+      <header>
+        <nav>
+          <ul>
+            <li><a href="#" data-toggle="nameApp">TRAVELING PETS</a></li>
+            <li><a href="#" data-toggle="modal">INICIAR SESION</a></li>
+
+          </ul>
+        </nav>
+      </header>
+      <!-- Ventana modal VISTA 1-->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <a href="#" class="close">&times;</a>
+          <h2>Inicio de Sesion</h2>
+          <form id="loginForm">
+            <input type="text" id="loginEmail" placeholder="Correo electrónico"
+              required>
+            <input type="password" id="loginPassword" placeholder="Contraseña"
+              required>
+            <button id="buttonInicioSesion" class="buttonInicioSesion"
+              type="submit">Iniciar Sesion</button>
+            <button id="googleSignIn"></button>
+            <button id="githubSignIn"></button>
+          </form>
+        </div>
+      </div>
+      <form id="registerForm" class="registerForm">
         <input type="text" id="name" placeholder="  Nombres"
           required>
-          <input type="text" id="last name" placeholder="  Apellidos"
+        <input type="text" id="last name" placeholder="  Apellidos"
           required>
         <input type="text" id="registerEmail" placeholder="  Correo electrónico"
           required>
         <input type="password" id="registerPassword" placeholder="  Contraseña"
           required>
         <button type="submit">Registrarme</button>
+      </form>
+
+    </section>
+    <section id="publicaciones">
+      <header>
+        <nav>
+          <ul>
+            <li><a href="#" data-toggle="cerrarSesion">CERRAR SESION</a></li>
+          </ul>
+        </nav>
+      </header>
+      <form id="todo_form">
+        <div>
+          <input type="text" id="publicacion"
+            placeholder="ingresa tu comentario o foto">
+        </div>
+        <div>
+          <input type="text" id="ubicacion" placeholder="ubicacion">
+        </div>
+        <div>
+          <textarea rows="4" id="todo_description" placeholder="Descripción"></textarea>
+        </div>
+        <button id='botonGuardar'>Guardar</button>
       </form>
     </section>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>

@@ -1,6 +1,8 @@
 
 const vista1 =document.getElementById("vista1"); 
-const vista2 =document.getElementById("vista2");
+const vista3=document.getElementById("publicaciones");
+const cerrarSesion = document.getElementById("cerrarSesion");
+
 
 var firebaseConfig = {
   apiKey: "AIzaSyDNhreCWCwxKUINenCE5dJFTWq-aHAHb9c",
@@ -70,6 +72,9 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     .then(function() {
       alert("Inicio de sesión exitoso");
       formularioLogin.reset();
+      modal.style.display = "none";
+      vista3.style.display = "block";
+      vista1.style.display = "none";
     })
     .catch(function(error) {
       alert("Error: " + error.message);
@@ -119,4 +124,5 @@ document.getElementById("githubSignIn").addEventListener("click", function() {
       alert("Error al iniciar sesión con GitHub: " + error.message);
     });
 });
+
 
