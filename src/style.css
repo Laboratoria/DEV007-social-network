@@ -1,0 +1,48 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color:  #F7EDE9;
+  font-family: 'Times New Roman', sans-serif;
+  display: grid;
+}
+
+.imgPrincipal {
+  width: 100%;
+}
+
+.imgLogo { 
+  width: 30%;
+  transform: translate(110%);
+}
+
+header{ 
+  grid-column: 1/2;
+  grid-row: 1;
+}
+
+section { 
+  display: grid;
+}
+
+h1 { 
+  grid-column: 2/12;
+  font-size: 2.5em;
+  margin-top: 10px;
+  color: #443728;
+}
+p { 
+  grid-column: 4/10;
+  font-size: 1.5em;
+  text-align: justify;
+  margin-top: 30px;
+}
+
+article { 
+  display: grid;
+  font-size: 1.5em;
+  gap: 50px;
+  margin-top: 70px;
+  justify-items: center;
+}
