@@ -10,7 +10,7 @@ const routes = {
   '/login': Login,
 };
 
-const onNavigate = (pathname) => {
+export const onNavigate = (pathname) => {
     window.history.pushState(
         {},
         pathname,
@@ -21,13 +21,14 @@ const onNavigate = (pathname) => {
         rootDiv.removeChild(rootDiv.firstChild);
     }
 
-    rootDiv.appendChild(routes[pathname]());
+    rootDiv.appendChild(routes[pathname](onNavigate));
 };
 
+console.log(window);
 const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
-    rootDiv.appendChild(component());
+    rootDiv.appendChild(component(onNavigate));
 };
 
-rootDiv.appendChild(component());
+rootDiv.appendChild(component(onNavigate));
