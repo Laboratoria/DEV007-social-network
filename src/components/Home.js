@@ -6,7 +6,7 @@ export const Home = () => {
     const buttonRegister = document.createElement('button');
 
     buttonLogin.textContent = 'Inicia sesion';
-    buttonRegister = 'Registrate';
+    buttonRegister.textContent = 'Registrate';
     
     buttonRegister.addEventListener('click', () => onNavigate('/register'));
     buttonLogin.addEventListener('click', () => onNavigate('/login'));
