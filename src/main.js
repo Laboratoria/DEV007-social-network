@@ -4,31 +4,31 @@ import { Login } from './components/Login.js';
 
 const rootDiv = document.getElementById('root');
 
-const routes = { 
+const routes = {
   '/': Home,
   '/register': Register,
   '/login': Login,
 };
 
 export const onNavigate = (pathname) => {
-    window.history.pushState(
-        {},
-        pathname,
-        window.location.origin + pathname,
-    );
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname,
+  );
 
-    while (rootDiv.firstChild) {
-        rootDiv.removeChild(rootDiv.firstChild);
-    }
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
 
-    rootDiv.appendChild(routes[pathname](onNavigate));
+  rootDiv.appendChild(routes[pathname](onNavigate));
 };
 
 console.log(window);
 const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
-    rootDiv.appendChild(component(onNavigate));
+  rootDiv.appendChild(component(onNavigate));
 };
 
 rootDiv.appendChild(component(onNavigate));
