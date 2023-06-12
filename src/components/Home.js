@@ -1,3 +1,4 @@
+
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   const buttonLogin = document.createElement('button');
@@ -10,9 +11,8 @@ export const Home = (onNavigate) => {
   buttonRegister.classList.add('btnRegister');
   buttonGoogle.textContent = 'Entrar con Google';
   buttonGoogle.classList.add('btnGoogle');
-
-  buttonRegister.addEventListener('click', () => onNavigate('/register'));
-  buttonLogin.addEventListener('click', () => onNavigate('/login'));
+    HomeDiv.appendChild(buttonLogin);
+    HomeDiv.appendChild(buttonRegister);
 
   HomeDiv.innerHTML += `
   <div class="imgGoogle">
