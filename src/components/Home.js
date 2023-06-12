@@ -1,5 +1,8 @@
 export const Home = (onNavigate) => {
-  const HomeDiv = document.createElement('div');
+  /*const HomeDiv = document.createElement('div');
+  const buttonLogin = document.createElement('button');
+  const buttonRegister = document.createElement('button');
+  const buttonGoogle = document.createElement('button');
 
   const buttonLogin = document.createElement('button');
   buttonLogin.textContent = 'Inicia sesion';
@@ -25,7 +28,15 @@ export const Home = (onNavigate) => {
 
   HomeDiv.appendChild(buttonLogin);
   HomeDiv.appendChild(buttonRegister);
-  HomeDiv.appendChild(buttonGoogle);
+  HomeDiv.appendChild(buttonGoogle); */
+
+  const HomeDiv = document.createElement('div');
+  const buttonLogin = document.createElement('button');
+  buttonLogin.textContent = 'Inicia sesion';
+
+  buttonLogin.addEventListener('click', () => onNavigate('/'));
+
+  HomeDiv.appendChild(buttonLogin);
 
   return HomeDiv;
 };

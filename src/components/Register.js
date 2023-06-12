@@ -19,12 +19,12 @@ export const Register = (onNavigate) => {
   buttonRegistro.classList.add('registerButton2');
   buttonRegistro.textContent = 'Registrarse';
 
-  buttonRegistro.addEventListener('click', () => onNavigate('/'));
+  buttonRegistro.addEventListener('click', () => onNavigate('/home'));
 
   const registerConCuenta = document.createElement('p');
   registerConCuenta.classList.add('registerConCuenta');
   registerConCuenta.innerHTML += `
-  ¿ya tienes cuenta? <a href="/login" class="linkConCuenta"> Inicia Sesión </a>
+  ¿ya tienes cuenta? <a href="/" class="linkConCuenta"> Inicia Sesión </a>
 `;
 
   HomeDiv.appendChild(inputName);

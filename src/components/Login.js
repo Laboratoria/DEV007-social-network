@@ -2,6 +2,11 @@ export const Login = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.textContent = 'Bienvenida al Login';
   HomeDiv.classList.add('loginContainer');
+  HomeDiv.innerHTML += `
+  <div class="imgLogo">
+    <img src= "./imagenes/logoFinal.png" class = "logoRed" alt= "logo">
+  </div>
+`;
 
   const inputUsermail = document.createElement('input');
   inputUsermail.setAttribute('type', 'text');
@@ -15,16 +20,25 @@ export const Login = (onNavigate) => {
   loginButton.classList.add('loginButton1');
   loginButton.textContent = 'Iniciar sesión';
 
-  const forgetButton = document.createElement('button');
-  forgetButton.classList.add('forgetBtn');
-  forgetButton.textContent = '¿Olvidaste tu contraseña?';
+  const forgetLink = document.createElement('a');
+  forgetLink.classList.add('forgetLk');
+  forgetLink.innerHTML += `
+  <a href="/passwordReset" class="forgetLk"> ¿Olvidaste tu contraseña? </a>
+`;        
 
-  loginButton.addEventListener('click', () => onNavigate('/'));
+  const registerLink = document.createElement('p');
+  registerLink.classList.add('registerLk');
+  registerLink.innerHTML += `
+  ¿No tienes una cuenta aún? <a href="/register" class="linkReg"> Regístrate </a>
+`;           
+
+  loginButton.addEventListener('click', () => onNavigate('/home'));
 
   HomeDiv.appendChild(inputUsermail);
   HomeDiv.appendChild(inputPassword);
   HomeDiv.appendChild(loginButton);
-  HomeDiv.appendChild(forgetButton);
+  HomeDiv.appendChild(forgetLink);
+  HomeDiv.appendChild(registerLink);
 
   return HomeDiv;
 };
