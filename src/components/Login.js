@@ -19,7 +19,6 @@ export const Login = (onNavigate) => {
   forgetButton.classList.add('forgetBtn');
   forgetButton.textContent = '¿Olvidaste tu contraseña?';
 
-
   loginButton.addEventListener('click', () => onNavigate('/'));
 
   HomeDiv.appendChild(inputUsermail);
