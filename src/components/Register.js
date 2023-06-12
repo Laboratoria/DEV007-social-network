@@ -1,4 +1,3 @@
-
 export const Register = (onNavigate) => {
   const HomeDiv = document.createElement("div");
   HomeDiv.textContent = "Bienvenida al registro";
