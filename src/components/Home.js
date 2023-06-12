@@ -4,10 +4,15 @@ export const Home = (onNavigate) => {
   const buttonRegister = document.createElement('button');
   const buttonGoogle = document.createElement('button');
 
+  const buttonLogin = document.createElement('button');
   buttonLogin.textContent = 'Inicia sesion';
   buttonLogin.classList.add('btnLogin');
+
+  const buttonRegister = document.createElement('button');
   buttonRegister.textContent = 'Registrate';
   buttonRegister.classList.add('btnRegister');
+
+  const buttonGoogle = document.createElement('button');
   buttonGoogle.textContent = 'Entrar con Google';
   buttonGoogle.classList.add('btnGoogle');
 
@@ -24,7 +29,7 @@ export const Home = (onNavigate) => {
   HomeDiv.appendChild(buttonLogin);
   HomeDiv.appendChild(buttonRegister);
   HomeDiv.appendChild(buttonGoogle); */
-  
+
   const HomeDiv = document.createElement('div');
   const buttonLogin = document.createElement('button');
   buttonLogin.textContent = 'Inicia sesion';
