@@ -86,6 +86,10 @@ height: 40%;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   
-  .forgetBtn{
-      border: 5px;
+  .forgetLk{
+      color: orange;
+  }
+
+  .linkReg{
+    color: yellow;
   }
