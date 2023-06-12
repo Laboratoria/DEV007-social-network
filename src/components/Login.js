@@ -1,19 +1,29 @@
 export const Login = (onNavigate) => {
-  const HomeDiv = document.createElement('div');
-  HomeDiv.textContent = 'Bienvenida al Login';
-  HomeDiv.classList.add('loginContainer');
-  HomeDiv.innerHTML += `
+  const loginContainer = document.createElement('div');
+  loginContainer.classList.add('loginContainer');
+  
+  const topSection = document.createElement('div');
+  topSection.classList.add('topSection');
+  topSection.innerHTML += `
   <div class="imgLogo">
     <img src= "./imagenes/logoFinal.png" class = "logoRed" alt= "logo">
   </div>
 `;
+ 
+  const bottomSection = document.createElement('div'); 
+  bottomSection.classList.add('bottomSection');
+  
+  const contenedorLogin = document.createElement('div');
+  contenedorLogin.classList.add('contenedorLogin');
 
   const inputUsermail = document.createElement('input');
+  inputUsermail.classList.add('inputUsermail');
   inputUsermail.setAttribute('type', 'text');
   inputUsermail.setAttribute('placeholder', 'Correo electrónico');
 
   const inputPassword = document.createElement('input');
-  inputPassword.setAttribute('type', 'text');
+  inputPassword.classList.add('inputPassword');
+  inputPassword.setAttribute('type', 'password');
   inputPassword.setAttribute('placeholder', 'Contraseña');
 
   const loginButton = document.createElement('button');
@@ -34,11 +44,16 @@ export const Login = (onNavigate) => {
 
   loginButton.addEventListener('click', () => onNavigate('/home'));
 
-  HomeDiv.appendChild(inputUsermail);
-  HomeDiv.appendChild(inputPassword);
-  HomeDiv.appendChild(loginButton);
-  HomeDiv.appendChild(forgetLink);
-  HomeDiv.appendChild(registerLink);
+  contenedorLogin.appendChild(inputUsermail);
+  contenedorLogin.appendChild(inputPassword);
+  contenedorLogin.appendChild(loginButton);
+  contenedorLogin.appendChild(forgetLink);
+  contenedorLogin.appendChild(registerLink);
 
-  return HomeDiv;
+  bottomSection.appendChild(contenedorLogin);
+
+  loginContainer.appendChild(topSection);
+  loginContainer.appendChild(bottomSection);
+
+  return loginContainer;
 };
