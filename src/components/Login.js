@@ -1,13 +1,31 @@
 export const Login = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.textContent = 'Bienvenida al Login';
-  const buttonHome = document.createElement('button');
+  HomeDiv.classList.add('loginContainer');
 
-  buttonHome.textContent = 'Regresar al Home';
+  const inputUsermail = document.createElement('input');
+  inputUsermail.setAttribute('type', 'text');
+  inputUsermail.setAttribute('placeholder', 'Correo electrónico');
 
-  buttonHome.addEventListener('click', () => onNavigate('/'));
+  const inputPassword = document.createElement('input');
+  inputPassword.setAttribute('type', 'text');
+  inputPassword.setAttribute('placeholder', 'Contraseña');
 
-  HomeDiv.appendChild(buttonHome);
+  const loginButton = document.createElement('button');
+  loginButton.classList.add('loginButton1');
+  loginButton.textContent = 'Iniciar sesión';
+
+  const forgetButton = document.createElement('button');
+  forgetButton.classList.add('forgetBtn');
+  forgetButton.textContent = '¿Olvidaste tu contraseña?';
+
+
+  loginButton.addEventListener('click', () => onNavigate('/'));
+
+  HomeDiv.appendChild(inputUsermail);
+  HomeDiv.appendChild(inputPassword);
+  HomeDiv.appendChild(loginButton);
+  HomeDiv.appendChild(forgetButton);
 
   return HomeDiv;
 };
