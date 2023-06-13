@@ -2,7 +2,7 @@ export const Login = (onNavigate) => {
   const loginContainer = document.createElement('div');
   loginContainer.classList.add('loginContainer');
   
-  const topSection = document.createElement('div');
+  const topSection = document.createElement('section');
   topSection.classList.add('topSection');
   topSection.innerHTML += `
   <div class="imgLogo">
@@ -10,7 +10,7 @@ export const Login = (onNavigate) => {
   </div>
 `;
  
-  const bottomSection = document.createElement('div'); 
+  const bottomSection = document.createElement('section'); 
   bottomSection.classList.add('bottomSection');
   
   const contenedorLogin = document.createElement('div');
