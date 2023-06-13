@@ -1,3 +1,5 @@
+import { crearUsuarioConCorreoYContraseña } from '../lib';
+
 export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.textContent = 'Hola PetLover! Ingrese su información a continuación para registrarse';
@@ -10,16 +12,25 @@ export const Register = (onNavigate) => {
   const inputMail = document.createElement('input');
   inputMail.setAttribute('type', 'text');
   inputMail.setAttribute('placeholder', 'e-mail');
+  inputMail.setAttribute('id', 'input-email');
 
-  const inputPassword = document.createElement('input');
-  inputPassword.setAttribute('type', 'password');
-  inputPassword.setAttribute('placeholder', 'Contraseña');
+  const inputContraseña = document.createElement('input');
+  inputContraseña.setAttribute('type', 'password');
+  inputContraseña.setAttribute('placeholder', 'Contraseña');
+  inputContraseña.setAttribute('id', 'input-password');
 
   const buttonRegistro = document.createElement('button');
   buttonRegistro.classList.add('registerButton2');
   buttonRegistro.textContent = 'Registrarse';
 
-  buttonRegistro.addEventListener('click', () => onNavigate('/home'));
+  //const inputCorreo = HomeDiv.querySelector('#input-email');
+  //const inputPassword = HomeDiv.querySelector('#input-password');
+
+  buttonRegistro.addEventListener('click', (e) => {
+    e.preventDefault();
+    onNavigate('/home');
+    crearUsuarioConCorreoYContraseña(inputMail.value, inputContraseña.value);
+  });
 
   const registerConCuenta = document.createElement('p');
   registerConCuenta.classList.add('registerConCuenta');
@@ -29,7 +40,7 @@ export const Register = (onNavigate) => {
 
   HomeDiv.appendChild(inputName);
   HomeDiv.appendChild(inputMail);
-  HomeDiv.appendChild(inputPassword);
+  HomeDiv.appendChild(inputContraseña);
   HomeDiv.appendChild(buttonRegistro);
   HomeDiv.appendChild(registerConCuenta);
 
