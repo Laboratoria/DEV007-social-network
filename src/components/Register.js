@@ -23,20 +23,17 @@ export const Register = (onNavigate) => {
   buttonRegistro.classList.add('registerButton2');
   buttonRegistro.textContent = 'Registrarse';
 
-  //const inputCorreo = HomeDiv.querySelector('#input-email');
-  //const inputPassword = HomeDiv.querySelector('#input-password');
+  const registerConCuenta = document.createElement('p');
+  registerConCuenta.classList.add('registerConCuenta');
+  registerConCuenta.innerHTML += `
+  ¿ya tienes cuenta? <a href="/" class="linkConCuenta"> Inicia Sesión </a>
+`;
 
   buttonRegistro.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/home');
     crearUsuarioConCorreoYContraseña(inputMail.value, inputContraseña.value);
   });
-
-  const registerConCuenta = document.createElement('p');
-  registerConCuenta.classList.add('registerConCuenta');
-  registerConCuenta.innerHTML += `
-  ¿ya tienes cuenta? <a href="/" class="linkConCuenta"> Inicia Sesión </a>
-`;
 
   HomeDiv.appendChild(inputName);
   HomeDiv.appendChild(inputMail);
