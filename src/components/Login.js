@@ -24,13 +24,13 @@ export const Login = (onNavigate) => {
   forgetLink.classList.add('forgetLk');
   forgetLink.innerHTML += `
   <a href="/passwordReset" class="forgetLk"> ¿Olvidaste tu contraseña? </a>
-`;        
+`;
 
   const registerLink = document.createElement('p');
   registerLink.classList.add('registerLk');
   registerLink.innerHTML += `
   ¿No tienes una cuenta aún? <a href="/register" class="linkReg"> Regístrate </a>
-`;           
+`;
 
   loginButton.addEventListener('click', () => onNavigate('/home'));
 
