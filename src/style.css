@@ -1,0 +1,193 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+}
+
+.ruteo{
+    height: 100vh;
+}
+
+/* .btnLogin {
+    width: 30%;
+    border-radius: 7px;
+    margin-left: 10%;
+    font-size: 120%;       
+    font-weight:bold;
+    font-family:cursive;
+    background-color: white;
+    border: 2px solid rgb(88, 88, 86);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;    
+} */
+
+/*Estilos Login*/
+
+.loginContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .topSection{
+    display: flex;
+    background-color: #1b444c;
+    height: 50vh;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .logoRed {
+    width: 50%;
+    margin-left: 22%;
+    margin-bottom: -10%;
+  }    
+
+  .bottomSection{
+    background-color: #E0E0E0;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contenedorLogin{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    gap: 15px;
+    width: 80%;
+    border: 2px solid #afb4b5;
+    border-radius: 5px;
+    justify-content: center;
+    padding-top: 10px;
+  }
+
+  .loginButton1 {
+      background-color:#211715;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: medium;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .inputUsermail{
+    padding: 15px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  
+  .inputPassword{
+    padding: 15px 10px;
+    border: 1px solid black; 
+    border-radius: 5px;
+  }
+
+  .forgetLk{
+      color: orange;
+      align-self: center;
+  }
+
+  .registerLk{
+    align-self: center;
+  }
+
+  .linkReg{
+    color: #a97b51;
+  }
+
+  .forgetBtn{
+      border: 5px;
+  }
+
+  /*Estilos register*/
+  
+  .registerDiv{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .topRegister{
+    display: flex;
+    background-color: #1b444c;
+    height: 50vh;
+    align-items: flex-end;
+    justify-content: center;
+}
+ 
+
+  .logoPets{
+    width: 50%;
+    margin-left: 22%;
+  }
+   .bottomRegister{
+    display: flex;
+    background-color: #E0E0E0;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+   }
+
+   .containerRegister{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    gap: 15px;
+    padding: 30px 50px;
+   }
+
+
+  .registerButton2 {
+      background-color:#211715;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: medium;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .registerConCuenta{
+    color: black;
+
+  }
+
+  .linkConCuenta{
+    color: #a97b51;
+    
+  }
+  
+#input-email{
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: medium;
+    border: 1px solid black;
+}
+
+#input-password{
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: medium;
+    border: 1px solid black;
+}
+
+#input-nombreApellido{
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: medium;
+    border: 1px solid black;
+}
+
