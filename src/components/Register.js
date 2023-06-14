@@ -4,6 +4,7 @@ export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.textContent = 'Hola PetLover! Ingrese su información a continuación para registrarse';
   HomeDiv.classList.add('registerContainer');
+  
 
   const inputName = document.createElement('input');
   inputName.setAttribute('type', 'text');
@@ -28,8 +29,8 @@ export const Register = (onNavigate) => {
 
   buttonRegistro.addEventListener('click', (e) => {
     e.preventDefault();
-    onNavigate('/home');
-    crearUsuarioConCorreoYContraseña(inputMail.value, inputContraseña.value);
+    crearUsuarioConCorreoYContraseña(inputMail.value, inputContraseña.value).then(() => {onNavigate('/home');
+    });
   });
 
   const registerConCuenta = document.createElement('p');
