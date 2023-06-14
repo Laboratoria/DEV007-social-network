@@ -1,6 +1,6 @@
 export const passwordReset = (onNavigate) => {
-   const HomeDiv = document.createElement('div');
-   HomeDiv.innerHTML += `
+   const resetDiv = document.createElement('div');
+   resetDiv.innerHTML += `
     <div class="textPasswordReset">
       <h1> ¿Tienes problemas para iniciar sesión? </h1>
       <p> Ingresa tu correo electrónico, y te enviaremos un enlace para que recuperes el acceso a tu cuenta. </p>
@@ -20,8 +20,8 @@ export const passwordReset = (onNavigate) => {
    
     sendMail.addEventListener('click', () => onNavigate('/'));
 
-    HomeDiv.appendChild(inputUsermailReset);
-    HomeDiv.appendChild(sendMail);
+    resetDiv.appendChild(inputUsermailReset);
+    resetDiv.appendChild(sendMail);
 
-    return HomeDiv;
+    return resetDiv;
 };
