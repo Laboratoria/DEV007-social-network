@@ -1,13 +1,27 @@
 import { crearUsuarioConCorreoYContraseña } from '../lib';
 
 export const Register = (onNavigate) => {
-  const HomeDiv = document.createElement('div');
-  HomeDiv.textContent = 'Hola PetLover! Ingrese su información a continuación para registrarse';
-  HomeDiv.classList.add('registerContainer');
+  const registerDiv = document.createElement('div');
+  //registerDiv.textContent = 'Hola PetLover! Ingrese su información a continuación para registrarse';//
+  registerDiv.classList.add('registerDiv');
+  
+  const topRegister = document.createElement('section');
+    topRegister.classList.add('topRegister');
+    topRegister.innerHTML += `
+    <div class="imgLogo">
+      <img src= "./imagenes/logoFinal.png" class = "logoPets" alt= "logo">
+    </div>
+  `;
+  const bottomRegister = document.createElement('section');
+  bottomRegister.classList.add('bottomRegister');
+  
+  const containerRegister = document.createElement('div');
+  containerRegister.classList.add('containerRegister');
 
   const inputName = document.createElement('input');
   inputName.setAttribute('type', 'text');
   inputName.setAttribute('placeholder', 'Nombre y Apellidos');
+  inputName.setAttribute('id', 'input-nombreApellido');
 
   const inputMail = document.createElement('input');
   inputMail.setAttribute('type', 'text');
@@ -23,8 +37,11 @@ export const Register = (onNavigate) => {
   buttonRegistro.classList.add('registerButton2');
   buttonRegistro.textContent = 'Registrarse';
 
-  //const inputCorreo = HomeDiv.querySelector('#input-email');
-  //const inputPassword = HomeDiv.querySelector('#input-password');
+  const registerConCuenta = document.createElement('p');
+  registerConCuenta.classList.add('registerConCuenta');
+  registerConCuenta.innerHTML += `
+  ¿ya tienes cuenta? <a href="/" class="linkConCuenta"> Inicia Sesión </a>
+`;
 
   buttonRegistro.addEventListener('click', (e) => {
     e.preventDefault();
@@ -32,17 +49,16 @@ export const Register = (onNavigate) => {
     crearUsuarioConCorreoYContraseña(inputMail.value, inputContraseña.value);
   });
 
-  const registerConCuenta = document.createElement('p');
-  registerConCuenta.classList.add('registerConCuenta');
-  registerConCuenta.innerHTML += `
-  ¿ya tienes cuenta? <a href="/" class="linkConCuenta"> Inicia Sesión </a>
-`;
+  containerRegister.appendChild(inputName);
+  containerRegister.appendChild(inputMail);
+  containerRegister.appendChild(inputContraseña);
+  containerRegister.appendChild(buttonRegistro);
+  containerRegister.appendChild(registerConCuenta);
 
-  HomeDiv.appendChild(inputName);
-  HomeDiv.appendChild(inputMail);
-  HomeDiv.appendChild(inputContraseña);
-  HomeDiv.appendChild(buttonRegistro);
-  HomeDiv.appendChild(registerConCuenta);
+  bottomRegister.appendChild(containerRegister);
 
-  return HomeDiv;
+  registerDiv.appendChild(topRegister);
+  registerDiv.appendChild(bottomRegister);
+
+  return registerDiv;
 };
