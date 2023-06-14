@@ -4,17 +4,17 @@ export const Register = (onNavigate) => {
   const registerDiv = document.createElement('div');
   //registerDiv.textContent = 'Hola PetLover! Ingrese su información a continuación para registrarse';//
   registerDiv.classList.add('registerDiv');
-  
+
   const topRegister = document.createElement('section');
-    topRegister.classList.add('topRegister');
-    topRegister.innerHTML += `
+  topRegister.classList.add('topRegister');
+  topRegister.innerHTML += `
     <div class="imgLogo">
       <img src= "./imagenes/logoFinal.png" class = "logoPets" alt= "logo">
     </div>
   `;
   const bottomRegister = document.createElement('section');
   bottomRegister.classList.add('bottomRegister');
-  
+
   const containerRegister = document.createElement('div');
   containerRegister.classList.add('containerRegister');
 
@@ -24,7 +24,7 @@ export const Register = (onNavigate) => {
   inputName.setAttribute('id', 'input-nombreApellido');
 
   const inputMail = document.createElement('input');
-  inputMail.setAttribute('type', 'text');
+  inputMail.setAttribute('type', 'email');
   inputMail.setAttribute('placeholder', 'e-mail');
   inputMail.setAttribute('id', 'input-email');
 
@@ -45,20 +45,22 @@ export const Register = (onNavigate) => {
 
   buttonRegistro.addEventListener('click', (e) => {
     e.preventDefault();
-    crearUsuarioConCorreoYContraseña(inputMail.value, inputContraseña.value);//.then(() => {onNavigate('/home');
-    onNavigate('/home');
+    crearUsuarioConCorreoYContraseña(inputMail.value, inputContraseña.value).then(() => {
+      alert('TU CUENTA HA SIDO CREADA, GRACIAS!');
+      onNavigate('/home');
     });
+});
 
-  containerRegister.appendChild(inputName);
-  containerRegister.appendChild(inputMail);
-  containerRegister.appendChild(inputContraseña);
-  containerRegister.appendChild(buttonRegistro);
-  containerRegister.appendChild(registerConCuenta);
+containerRegister.appendChild(inputName);
+containerRegister.appendChild(inputMail);
+containerRegister.appendChild(inputContraseña);
+containerRegister.appendChild(buttonRegistro);
+containerRegister.appendChild(registerConCuenta);
 
-  bottomRegister.appendChild(containerRegister);
+bottomRegister.appendChild(containerRegister);
 
-  registerDiv.appendChild(topRegister);
-  registerDiv.appendChild(bottomRegister);
+registerDiv.appendChild(topRegister);
+registerDiv.appendChild(bottomRegister);
 
-  return registerDiv;
+return registerDiv;
 }
