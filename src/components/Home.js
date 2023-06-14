@@ -4,6 +4,7 @@ export const Home = (onNavigate) => {
 
 
   const buttonLogin = document.createElement('button');
+  buttonLogin.classList.add('pruebaHome');
   buttonLogin.textContent = 'Inicia sesion';
 
   buttonLogin.addEventListener('click', () => onNavigate('/'));
