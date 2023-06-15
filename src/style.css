@@ -1,0 +1,104 @@
+@media only screen and (min-width: 768px) and (max-width: 1400px) {
+}
+
+/* ---------------------------------------- Vista home ---------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@200&family=Nunito+Sans:wght@300&display=swap');
+
+* {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.home-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.title-flora {
+    font-size: 32px;
+    color: #263238;
+    text-align: center;
+}
+
+.logo-flora {
+    color: #263238;
+    text-align: center;
+    font-size: 13px;
+    row-gap: 50px;
+}
+
+.container-img-home {
+    max-width: 80%;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* ---------------------------------------- Botones e inputs ---------------------------------------- */
+
+.button {
+    font-family: sans-serif;
+    background-color: #263238;
+    color: #E0EDA5;
+    border-radius: 25px;
+    border: hidden;
+    margin: 5px;
+    padding: 15px;
+    font-size: 12px;
+    width: 230px;
+    height: 44px;
+    cursor: pointer;
+}
+
+.button-google {
+    font-family: sans-serif;
+    background: rgba(217, 217, 217, 0.26);
+    color: #263238;
+    border-radius: 25px;
+    border: hidden;
+    margin: 5px;
+    padding: 15px;
+    font-size: 12px;
+    width: 230px;
+    height: 44px;
+    cursor: pointer;
+    background-image: url(../src/images/google-icon.png);
+    background-repeat:no-repeat;
+    background-size: 28px;
+    background-position: 6%;
+}
+
+.login-register-div {
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: center;
+}
+
+.input-data {
+width: 269px;
+height: 40px;
+
+font-size: 12px;
+background: rgba(217, 217, 217, 0.26);
+color: gray;
+text-align: center;
+border: hidden;
+border-radius: 12px;
+margin: 5px;
+}
+
+.titles {
+    font-family: sans-serif;
+    font-size: 25px;
+    color: #263238;
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
