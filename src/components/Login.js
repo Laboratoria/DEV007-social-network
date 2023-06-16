@@ -1,6 +1,7 @@
 import {iniciarSesionConCorreoYContraseña} from '../lib';
 
 export const Login = (onNavigate) => {
+
   const loginContainer = document.createElement('div');
   loginContainer.classList.add('loginContainer');
   
@@ -34,17 +35,30 @@ export const Login = (onNavigate) => {
 
   const forgetLink = document.createElement('a');
   forgetLink.classList.add('forgetLk');
-  forgetLink.innerHTML += `
-  <a href="/passwordReset" class="forgetLk"> ¿Olvidaste tu contraseña? </a>
+  forgetLink.textContent = ' ¿Olvidaste tu contraseña? ';
+  
+  const modalWindow = document.createElement('div');
+  modalWindow.classList.add('modalWindow');
+
+  const modalContent = document.createElement('div');
+  modalContent.classList.add('modalContent');
+  modalContent.setAttribute('id', 'modalMain');
+  modalContent.innerHTML += `
+  <h1> CONTRASEÑA OLVIDADA </h1>
+  <p> Si ha olvidado su contraseña, introduzca la dirección registrada de correo por favor.
+  Le enviaremos un enlace para reajustar su contraseña. </p>
+  <input placeholder = "Correo electrónico"></input>
+  <button> Continuar </button> 
 `;
+  const closeModal = document.createElement('span');
+  closeModal.classList.add('closeModal')
+  closeModal.innerHTML = '&times;';
 
   const googleButton = document.createElement('button');
   googleButton.classList.add('googleButton');
   googleButton.innerHTML += `
   <p class = "textGoogle"> Continuar con Google </p>
 `;
-
-  //googleButton.textContent = 'Continuar con Google';
 
   const googleLogoContainer = document.createElement('div');
   googleLogoContainer.classList.add('googleLogoContainer');
@@ -71,7 +85,13 @@ export const Login = (onNavigate) => {
   errorPassword.classList.add('errorPassword');
   errorPassword.textContent = '';
 
+  forgetLink.addEventListener('click', function () {
+    document.querySelector(".modalWindow").style.display = 'flex';
+  });
 
+  closeModal.addEventListener("click", function() {
+    document.querySelector("").style.display = "none";
+  });
 
   //loginButton.addEventListener('click', () => onNavigate('/home'));
 
@@ -98,6 +118,9 @@ export const Login = (onNavigate) => {
     }
   });
 
+  modalContent.appendChild(closeModal);
+  modalWindow.appendChild(modalContent);
+
   googleLogoContainer.appendChild(logoGoogle);
   googleButton.appendChild(googleLogoContainer);
 
@@ -109,6 +132,7 @@ export const Login = (onNavigate) => {
   contenedorLogin.appendChild(forgetLink);
   contenedorLogin.appendChild(googleButton);
   contenedorLogin.appendChild(registerLink);
+  contenedorLogin.appendChild(modalWindow);
 
   bottomSection.appendChild(contenedorLogin);
   bottomSection.appendChild(errorContainer);
