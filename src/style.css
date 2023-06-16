@@ -7,6 +7,9 @@ body {
     height: 100vh;
 }
 
+
+@media (max-width: 768px) {    /* Estilos para pantallas pequeñas */
+   
 /*Estilos Login*/
 
 .loginContainer {
@@ -22,9 +25,14 @@ body {
     align-items: center;
 }
 
+.imgLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .logoRed {
     width: 60%;
-    margin-left: 20%;
 }
 
 .bottomSection {
@@ -39,13 +47,13 @@ body {
     display: flex;
     flex-direction: column;
     background-color: white;
-    gap: 15px;
-    width: 80%;
+    gap: 0.7rem;
+    width: 70%;
     height: 50%;
     border: 2px solid #afb4b5;
     border-radius: 20px;
     justify-content: center;
-    padding: 80px 20px;
+    padding: 5rem 2rem;
 }
 
 .loginButton1 {
@@ -84,19 +92,20 @@ body {
     display: flex;
     flex-direction: row-reverse;
     background-color: white;
-    border: 3px solid #1b444c;
+    border: 2px solid #1b444c;
     border-radius: 10px;
     align-items: center;
+    height: 7vh;
 }
 
 .googleLogoContainer{
     display: flex;
-    height: 5vh;
+    height: 4vh;
     width: 5%;
 }
 
 .textGoogle{
-    width: 80%;
+    width: 90%;
     font-size: medium;
 }
 
@@ -129,7 +138,6 @@ body {
 
 .logoPets {
     width: 60%;
-    margin-left: 20%;
 }
 
 .bottomRegister {
@@ -144,13 +152,12 @@ body {
     display: flex;
     flex-direction: column;
     background-color: white;
-    gap: 30px;
-    width: 80%;
-    height: 60%;
+    gap: 1rem;
+    width: 70%;
     border: 2px solid #afb4b5;
     border-radius: 20px;
     justify-content: center;
-    padding: 50px 20px;
+    padding: 2rem 2rem;
 }
 
 .registerButton2 {
@@ -218,3 +225,227 @@ body {
     font-size: medium;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+}
+
+
+/* @media (min-width: 768px) and (max-width: 1200px) {    /* Estilos para pantallas medianas */
+   
+    /*Estilos Login*/
+    
+    .loginContainer {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    
+    .topSection {
+        display: flex;
+        background-color: #1b444c;
+        height: 40vh;
+        align-items: center;
+    }
+    
+    .imgLogo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .logoRed {
+        width: 50%;
+    }
+    
+    .bottomSection {
+        background-color: #E0E0E0;
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .contenedorLogin {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        gap: 15px;
+        width: 80%;
+        height: 50%;
+        border: 2px solid #afb4b5;
+        border-radius: 20px;
+        justify-content: center;
+        padding: 90px 20px;
+    }
+    
+    .loginButton1 {
+        background-color: #211715;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: medium;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .inputUsermail {
+        padding: 15px 10px;
+        border: 1px solid black;
+        border-radius: 10px;
+        font-size: medium;
+    }
+    
+    .inputPassword {
+        padding: 15px 10px;
+        border: 1px solid black;
+        border-radius: 10px;
+        font-size: medium;
+    }
+    
+    .forgetLk {
+        color: orange;
+        align-self: center;
+    }
+    
+    .googleButton{
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: white;
+        border: 2px solid #1b444c;
+        border-radius: 10px;
+        align-items: center;
+    }
+    
+    .googleLogoContainer{
+        display: flex;
+        height: 5vh;
+        width: 5%;
+    }
+    
+    .textGoogle{
+        width: 80%;
+        font-size: medium;
+    }
+    
+    .registerLk {
+        align-self: center;
+    }
+    
+    .linkReg {
+        color: #a97b51;
+    }
+    
+    .forgetBtn {
+        border: 5px;
+    }
+    
+    /*Estilos register*/
+    
+    .registerDiv {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    
+    .topRegister {
+        display: flex;
+        background-color: #1b444c;
+        height: 40vh;
+        align-items: center;
+    }
+    
+    .logoPets {
+        width: 60%;
+        margin-left: 20%;
+    }
+    
+    .bottomRegister {
+        display: flex;
+        background-color: #E0E0E0;
+        height: 60vh;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .containerRegister {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        gap: 30px;
+        width: 80%;
+        height: 60%;
+        border: 2px solid #afb4b5;
+        border-radius: 20px;
+        justify-content: center;
+        padding: 50px 20px;
+    }
+    
+    .registerButton2 {
+        background-color: #211715;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: medium;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    #input-email {
+        border-radius: 10px;
+        padding: 15px 10px;
+        font-size: medium;
+        border: 1px solid black;
+    }
+    
+    #input-password {
+        border-radius: 10px;
+        padding: 15px 10px;
+        font-size: medium;
+        border: 1px solid black;
+    }
+    
+    #input-nombreApellido {
+        border-radius: 10px;
+        padding: 15px 10px;
+        font-size: medium;
+        border: 1px solid black;
+    }
+    
+    .registerConCuenta {
+        color: black;
+        align-self: center;
+    }
+    
+    .linkConCuenta {
+        color: #a97b51;
+        font-size: medium;
+    }
+    
+    /*Estilos Home*/
+    
+    .HomeDiv{
+        background-color: #1b444c;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .pruebaHome{
+        background-color: #211715;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: medium;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    

@@ -20,12 +20,12 @@ export const Register = (onNavigate) => {
 
   const inputName = document.createElement('input');
   inputName.setAttribute('type', 'text');
-  inputName.setAttribute('placeholder', 'Nombre y Apellidos');
+  inputName.setAttribute('placeholder', 'Nombre y Apellido');
   inputName.setAttribute('id', 'input-nombreApellido');
 
   const inputMail = document.createElement('input');
   inputMail.setAttribute('type', 'email');
-  inputMail.setAttribute('placeholder', 'e-mail');
+  inputMail.setAttribute('placeholder', 'Correo electrónico');
   inputMail.setAttribute('id', 'input-email');
 
   const inputContraseña = document.createElement('input');
