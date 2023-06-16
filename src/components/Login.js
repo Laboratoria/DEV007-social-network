@@ -90,7 +90,7 @@ export const Login = (onNavigate) => {
   });
 
   closeModal.addEventListener("click", function() {
-    document.querySelector("").style.display = "none";
+    document.querySelector(".modalWindow").style.display = "none";
   });
 
   //loginButton.addEventListener('click', () => onNavigate('/home'));
