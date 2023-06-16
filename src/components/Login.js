@@ -1,4 +1,4 @@
-import {iniciarSesionConCorreoYContraseña} from '../lib';
+import {iniciarSesionConCorreoYContraseña, initSessionsWithGoogle} from '../lib';
 
 export const Login = (onNavigate) => {
 
@@ -117,6 +117,12 @@ export const Login = (onNavigate) => {
       }
     }
   });
+
+    googleButton.addEventListener('click', () => {
+    initSessionsWithGoogle().then(() => {
+      onNavigate('/home');
+    });
+   });
 
   modalContent.appendChild(closeModal);
   modalWindow.appendChild(modalContent);
