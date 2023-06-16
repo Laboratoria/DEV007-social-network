@@ -58,20 +58,20 @@ body {
 
 .inputUsermail {
     padding: 15px 10px;
-    border: 1px solid black;
+    border: 1px solid #1b444c;
     border-radius: 10px;
     font-size: medium;
 }
 
 .inputPassword {
     padding: 15px 10px;
-    border: 1px solid black;
+    border: 1px solid #1b444c;
     border-radius: 10px;
     font-size: medium;
 }
 
 .loginButton1 {
-    background-color: #211715;
+    background-color: #1b444c;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -158,21 +158,21 @@ body {
     border-radius: 10px;
     padding: 15px 10px;
     font-size: medium;
-    border: 1px solid black;
+    border: 1px solid #1b444c;
 }
 
 #input-password {
     border-radius: 10px;
     padding: 15px 10px;
     font-size: medium;
-    border: 1px solid black;
+    border: 1px solid #1b444c;
 }
 
 #input-nombreApellido {
     border-radius: 10px;
     padding: 15px 10px;
     font-size: medium;
-    border: 1px solid black;
+    border: 1px solid #1b444c;
 }
 
 .registerButton2 {
@@ -271,20 +271,20 @@ body {
     
     .inputUsermail {
         padding: 1.5rem;
-        border: 2px solid black;
+        border: 2px solid #1b444c;
         border-radius: 20px;
         font-size: x-large;
     }
     
     .inputPassword {
         padding: 1.5rem;
-        border: 2px solid black;
+        border: 2px solid #1b444c;
         border-radius: 20px;
         font-size: x-large;
     }
     
     .loginButton1 {
-        background-color: #211715;
+        background-color: #1b444c;
         border: none;
         color: white;
         padding: 1.5rem;
@@ -372,21 +372,21 @@ body {
         border-radius: 20px;
         padding: 1.5rem;
         font-size: x-large;
-        border: 2px solid black;
+        border: 2px solid #1b444c;
     }
 
     #input-email {
         border-radius: 20px;
         padding: 1.5rem;
         font-size: x-large;
-        border: 2px solid black;
+        border: 2px solid #1b444c;
     }
     
     #input-password {
         border-radius: 20px;
         padding: 1.5rem;
         font-size: x-large;
-        border: 2px solid black;
+        border: 2px solid #1b444c;
     }
 
     .registerButton2 {
@@ -435,3 +435,214 @@ body {
     }
     
 }
+
+@media (min-width: 1200px) {        /* Estilos para pantallas grandes */
+
+    /*Estilos Login*/
+
+    .loginContainer {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+    }
+    
+    .topSection {
+        display: flex;
+        background-color: #1b444c;
+        width: 50%;
+        align-items: center;
+    }
+    
+    .imgLogo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .logoRed {
+        width: 80%;
+    }
+    
+    .bottomSection {
+        background-color: #E0E0E0;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .contenedorLogin {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        gap: 1rem;
+        width: 70%;
+        border: 3px solid #afb4b5;
+        border-radius: 20px;
+        justify-content: center;
+        padding: 3rem 2rem;
+    }
+    
+    .inputUsermail {
+        padding: 1.5rem;
+        border: 2px solid #1b444c;
+        border-radius: 20px;
+        font-size: x-large;
+    }
+    
+    .inputPassword {
+        padding: 1.5rem;
+        border: 2px solid #1b444c;
+        border-radius: 20px;
+        font-size: x-large;
+    }
+    
+    .loginButton1 {
+        background-color: #211715;
+        border: none;
+        color: white;
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 20px;
+        font-size: x-large;
+    }
+    
+    .forgetLk {
+        color: orange;
+        align-self: center;
+        font-size: x-large;
+    }
+    
+    .googleButton{
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: white;
+        border: 3px solid #1b444c;
+        border-radius: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .googleLogoContainer{
+        display: flex;
+        height: 4vh;
+        margin-right: 1rem;
+    }
+    
+    .textGoogle{
+        font-size: x-large;
+    }
+    
+    .registerLk {
+        align-self: center;
+        font-size: x-large;
+    }
+    
+    .linkReg {
+        color: #a97b51;
+        font-size: x-large;
+    }
+    
+    /*Estilos register*/
+    
+    .registerDiv {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+    }
+    
+    .topRegister {
+        display: flex;
+        background-color: #1b444c;
+        width: 50%;
+        align-items: center;
+    }
+    
+    .logoPets {
+        width: 80%;
+    }
+    
+    .bottomRegister {
+        display: flex;
+        background-color: #E0E0E0;
+        width: 50%;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .containerRegister {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        gap: 1.5rem;
+        width: 70%;
+        border: 3px solid #afb4b5;
+        border-radius: 20px;
+        justify-content: center;
+        padding: 3rem 2rem;
+    }
+    
+    #input-email {
+        border-radius: 20px;
+        padding: 1.5rem;
+        font-size: x-large;
+        border: 2px solid #1b444c;
+    }
+    
+    #input-password {
+        border-radius: 20px;
+        padding: 1.5rem;
+        font-size: x-large;
+        border: 2px solid #1b444c;
+    }
+    
+    #input-nombreApellido {
+        border-radius: 20px;
+        padding: 1.5rem;
+        font-size: x-large;
+        border: 2px solid #1b444c;
+    }
+    
+    .registerButton2 {
+        background-color: #211715;
+        border: none;
+        color: white;
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 20px;
+        font-size: x-large;
+    }
+    
+    .registerConCuenta {
+        color: black;
+        align-self: center;
+        font-size: x-large;
+    }
+    
+    .linkConCuenta {
+        color: #a97b51;
+        font-size: x-large;
+    }
+    
+    /*Estilos Home*/
+    
+    .HomeDiv{
+        background-color: #1b444c;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .pruebaHome{
+        background-color: #211715;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: medium;
+    }    
+
+  }
