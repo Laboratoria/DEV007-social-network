@@ -1,4 +1,4 @@
-import {iniciarSesionConCorreoYContraseña} from '../lib';
+import {iniciarSesionConCorreoYContraseña, initSessionsWithGoogle} from '../lib';
 
 export const Login = (onNavigate) => {
 
@@ -47,8 +47,8 @@ export const Login = (onNavigate) => {
   <h1> CONTRASEÑA OLVIDADA </h1>
   <p> Si ha olvidado su contraseña, introduzca la dirección registrada de correo por favor.
   Le enviaremos un enlace para reajustar su contraseña. </p>
-  <input placeholder = "Correo electrónico"></input>
-  <button> Continuar </button> 
+  <input class = "modalInput" placeholder = "Correo electrónico"></input>
+  <button class = "modalButton"> Continuar </button> 
 `;
   const closeModal = document.createElement('span');
   closeModal.classList.add('closeModal')
@@ -118,6 +118,12 @@ export const Login = (onNavigate) => {
     }
   });
 
+  googleButton.addEventListener('click', () => {
+    initSessionsWithGoogle().then(() => {
+      onNavigate('/home');
+    });
+   });
+
   modalContent.appendChild(closeModal);
   modalWindow.appendChild(modalContent);
 
@@ -132,11 +138,11 @@ export const Login = (onNavigate) => {
   contenedorLogin.appendChild(forgetLink);
   contenedorLogin.appendChild(googleButton);
   contenedorLogin.appendChild(registerLink);
-  contenedorLogin.appendChild(modalWindow);
 
   bottomSection.appendChild(contenedorLogin);
   bottomSection.appendChild(errorContainer);
 
+  loginContainer.appendChild(modalWindow);
   loginContainer.appendChild(topSection);
   loginContainer.appendChild(bottomSection);
 
