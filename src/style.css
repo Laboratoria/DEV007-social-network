@@ -56,19 +56,6 @@ body {
     padding: 5rem 2rem;
 }
 
-.loginButton1 {
-    background-color: #211715;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
-    border-radius: 10px;
-    font-size: medium;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
 .inputUsermail {
     padding: 15px 10px;
     border: 1px solid black;
@@ -79,6 +66,18 @@ body {
 .inputPassword {
     padding: 15px 10px;
     border: 1px solid black;
+    border-radius: 10px;
+    font-size: medium;
+}
+
+.loginButton1 {
+    background-color: #211715;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
     border-radius: 10px;
     font-size: medium;
 }
@@ -115,10 +114,6 @@ body {
 
 .linkReg {
     color: #a97b51;
-}
-
-.forgetBtn {
-    border: 5px;
 }
 
 /*Estilos register*/
@@ -229,7 +224,7 @@ body {
 }
 
 
-/* @media (min-width: 768px) and (max-width: 1200px) {    /* Estilos para pantallas medianas */
+@media (min-width: 770px) and (max-width: 1200px) {    /* Estilos para pantallas medianas */
    
     /*Estilos Login*/
     
@@ -268,45 +263,42 @@ body {
         display: flex;
         flex-direction: column;
         background-color: white;
-        gap: 15px;
+        gap: 1rem;
         width: 80%;
-        height: 50%;
         border: 2px solid #afb4b5;
         border-radius: 20px;
         justify-content: center;
-        padding: 90px 20px;
+        padding: 3rem;
+    }
+    
+    .inputUsermail {
+        padding: 1.5rem;
+        border: 1px solid black;
+        border-radius: 20px;
+        font-size: x-large;
+    }
+    
+    .inputPassword {
+        padding: 1.5rem;
+        border: 1px solid black;
+        border-radius: 20px;
+        font-size: x-large;
     }
     
     .loginButton1 {
         background-color: #211715;
         border: none;
         color: white;
-        padding: 15px 32px;
+        padding: 1.5rem;
         text-align: center;
-        display: inline-block;
-        text-decoration: none;
-        border-radius: 10px;
-        font-size: medium;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        font-size: x-large;
     }
-    
-    .inputUsermail {
-        padding: 15px 10px;
-        border: 1px solid black;
-        border-radius: 10px;
-        font-size: medium;
-    }
-    
-    .inputPassword {
-        padding: 15px 10px;
-        border: 1px solid black;
-        border-radius: 10px;
-        font-size: medium;
-    }
-    
+
     .forgetLk {
         color: orange;
         align-self: center;
+        font-size: x-large;
     }
     
     .googleButton{
@@ -314,31 +306,28 @@ body {
         flex-direction: row-reverse;
         background-color: white;
         border: 2px solid #1b444c;
-        border-radius: 10px;
+        border-radius: 20px;
         align-items: center;
+        justify-content: center;
     }
     
     .googleLogoContainer{
         display: flex;
         height: 5vh;
-        width: 5%;
     }
     
     .textGoogle{
-        width: 80%;
-        font-size: medium;
+        font-size: x-large;
     }
     
     .registerLk {
         align-self: center;
+        font-size: x-large;
     }
     
     .linkReg {
         color: #a97b51;
-    }
-    
-    .forgetBtn {
-        border: 5px;
+        font-size: large;
     }
     
     /*Estilos register*/
@@ -357,8 +346,7 @@ body {
     }
     
     .logoPets {
-        width: 60%;
-        margin-left: 20%;
+        width: 50%;
     }
     
     .bottomRegister {
@@ -373,57 +361,56 @@ body {
         display: flex;
         flex-direction: column;
         background-color: white;
-        gap: 30px;
+        gap: 1.5rem;
         width: 80%;
-        height: 60%;
         border: 2px solid #afb4b5;
         border-radius: 20px;
         justify-content: center;
-        padding: 50px 20px;
+        padding: 3rem;
     }
     
-    .registerButton2 {
-        background-color: #211715;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        display: inline-block;
-        text-decoration: none;
-        border-radius: 10px;
-        font-size: medium;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    #input-nombreApellido {
+        border-radius: 20px;
+        padding: 1.5rem;
+        font-size: x-large;
+        border: 1px solid black;
     }
-    
+
     #input-email {
-        border-radius: 10px;
-        padding: 15px 10px;
-        font-size: medium;
+        border-radius: 20px;
+        padding: 1.5rem;
+        font-size: x-large;
         border: 1px solid black;
     }
     
     #input-password {
-        border-radius: 10px;
-        padding: 15px 10px;
-        font-size: medium;
+        border-radius: 20px;
+        padding: 1.5rem;
+        font-size: x-large;
         border: 1px solid black;
     }
-    
-    #input-nombreApellido {
-        border-radius: 10px;
-        padding: 15px 10px;
-        font-size: medium;
-        border: 1px solid black;
+
+    .registerButton2 {
+        background-color: #211715;
+        border: none;
+        color: white;
+        padding: 1.5rem;
+        text-align: center;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: x-large
     }
     
     .registerConCuenta {
         color: black;
         align-self: center;
+        font-size: x-large;
     }
     
     .linkConCuenta {
         color: #a97b51;
-        font-size: medium;
+        font-size: x-large;
     }
     
     /*Estilos Home*/
@@ -448,4 +435,4 @@ body {
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
     
-    
+}
