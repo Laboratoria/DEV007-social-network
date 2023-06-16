@@ -8,8 +8,7 @@ body {
 }
 
 
-@media (max-width: 768px) {
-    /* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {     /* Estilos para pantallas pequeñas */
 
     /*Estilos Login*/
 
@@ -34,6 +33,32 @@ body {
 
     .logoRed {
         width: 60%;
+    }
+
+    .modalWindow {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        background-color: white;
+        border: 2px solid #1b444c;
+        border-radius: 20px;
+        padding: 1rem 2rem 2rem;
+    }
+
+    .modalContent{
+        position: relative;
+        margin: auto;
+        padding: 3rem;
+        width: 90%;
+    }
+
+    .closeModal{
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #1b444c;
     }
 
     .bottomSection {
@@ -435,11 +460,10 @@ body {
         font-size: medium;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
-
 }
 
-@media (min-width: 1200px) {
-    /* Estilos para pantallas grandes */
+
+@media (min-width: 1200px) { /* Estilos para pantallas grandes */
 
     /*Estilos Login*/
 
