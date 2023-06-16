@@ -38,6 +38,22 @@ export const Login = (onNavigate) => {
   <a href="/passwordReset" class="forgetLk"> ¿Olvidaste tu contraseña? </a>
 `;
 
+  const googleButton = document.createElement('button');
+  googleButton.classList.add('googleButton');
+  googleButton.innerHTML += `
+  <p class = "textGoogle"> Continuar con Google </p>
+`;
+
+  //googleButton.textContent = 'Continuar con Google';
+
+  const googleLogoContainer = document.createElement('div');
+  googleLogoContainer.classList.add('googleLogoContainer');
+
+  const logoGoogle = document.createElement('img');
+  logoGoogle.src = "./imagenes/logo-google.png";
+  logoGoogle.classList.add('logoGoogle');
+  loginButton.alt = 'Google';
+
   const registerLink = document.createElement('p');
   registerLink.classList.add('registerLk');
   registerLink.innerHTML += `
@@ -82,9 +98,8 @@ export const Login = (onNavigate) => {
     }
   });
 
-
-
-
+  googleLogoContainer.appendChild(logoGoogle);
+  googleButton.appendChild(googleLogoContainer);
 
   contenedorLogin.appendChild(inputUsermail);
   contenedorLogin.appendChild(errorUsermail);
@@ -92,11 +107,11 @@ export const Login = (onNavigate) => {
   contenedorLogin.appendChild(errorPassword);
   contenedorLogin.appendChild(loginButton);
   contenedorLogin.appendChild(forgetLink);
+  contenedorLogin.appendChild(googleButton);
   contenedorLogin.appendChild(registerLink);
 
   bottomSection.appendChild(contenedorLogin);
   bottomSection.appendChild(errorContainer);
-
 
   loginContainer.appendChild(topSection);
   loginContainer.appendChild(bottomSection);
