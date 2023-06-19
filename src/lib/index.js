@@ -12,6 +12,5 @@ export const iniciarSesionConCorreoYContraseña = (email, contraseña) => {
 
 export const initSessionsWithGoogle = () => {
   const provider = new GoogleAuthProvider();
-
   return signInWithPopup(auth, provider);
 };

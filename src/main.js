@@ -7,7 +7,7 @@ const rootDiv = document.getElementById('root');
 const routes = {
   '/': Login,
   '/register': Register,
-    '/home': Home,
+  '/home': Home,
 };
 
 export const onNavigate = (pathname) => {
