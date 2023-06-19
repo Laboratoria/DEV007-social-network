@@ -40,13 +40,13 @@ export const Register = (onNavigate) => {
   const registerConCuenta = document.createElement('p');
   registerConCuenta.classList.add('registerConCuenta');
   registerConCuenta.innerHTML += `
-  ¿ya tienes cuenta? <a href="/" class="linkConCuenta"> Inicia Sesión </a>
+  ¿Ya tienes cuenta? <a href="/" class="linkConCuenta"> Inicia sesión </a>
 `;
 
   buttonRegistro.addEventListener('click', (e) => {
     e.preventDefault();
+  crearUsuarioConCorreoYContraseña(inputMail.value, inputContraseña.value);//.then(() => {onNavigate('/home');
     onNavigate('/home');
-    crearUsuarioConCorreoYContraseña(inputMail.value, inputContraseña.value);
   });
 
   containerRegister.appendChild(inputName);
@@ -61,4 +61,4 @@ export const Register = (onNavigate) => {
   registerDiv.appendChild(bottomRegister);
 
   return registerDiv;
-};
+}
