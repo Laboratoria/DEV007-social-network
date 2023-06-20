@@ -2,14 +2,60 @@ export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.classList.add('HomeDiv');
 
+  const publicarButton = document.createElement('button');
+  publicarButton.classList.add('publicarButton');
+  publicarButton.textContent = 'Que estas pensando?';
 
-  const buttonLogin = document.createElement('button');
-  buttonLogin.classList.add('pruebaHome');
-  buttonLogin.textContent = 'Inicia sesion';
+  publicarButton.addEventListener("click", function () {
+    document.querySelector(".modalHome").style.display = "flex";
+  });
+ 
+ // const buttonLogin = document.createElement('button');
+  //buttonLogin.classList.add('pruebaHome');
+  //buttonLogin.textContent = 'Inicia sesion';
+const headerHomepage = document.createElement('div');
+  headerHomepage.classList.add('headerHomepage');
+  headerHomepage.innerHTML += `
+    <div class="leftHome">
+      <img src= "./imagenes/logoFinal.png" class = "logoHome" alt= "logo">
+    </div>
+    <div class="rightHome">
+      <button type="button" id="HomeResumePageBtn">
+        cerrar sesión
+      </button>
+    </div>
+  `;
 
-  buttonLogin.addEventListener('click', () => onNavigate('/'));
+  const modalHome = document.createElement('div');
+  modalHome.classList.add('modalHome');
+  const modalContentHome = document.createElement('div');
+  modalContentHome.classList.add('modalContentHome');
+  modalContentHome.setAttribute('id', 'modalPeageHome');
+  modalContentHome.innerHTML += `
+  <h1> CREAR PUBLICACIÓN </h1>
+  <input class = "modalInputHome" placeholder = "¿Que estas pensando?"></input>
+  <button class = "modalBtnHome"> Publicar </button> 
+`;
+  const endModalHome = document.createElement('span');
+  endModalHome.classList.add('endModalHome');
+  endModalHome.innerHTML = '&times;';
+  //const timeBtn= document.getElementById("publicarHomeBtn");
+  //timeBtn.addEventListener('click', function () {
+  //document.querySelector(".modalHome").style.display = 'flex';
+  //});
 
-  HomeDiv.appendChild(buttonLogin);
+  endModalHome.addEventListener("click", function() {
+    document.querySelector(".modalHome").style.display = "none";
+  });
+  //buttonLogin.addEventListener('click', () => onNavigate('/'));
+
+  //HomeDiv.appendChild(buttonLogin);
+  modalContentHome.appendChild(endModalHome);
+  modalHome.appendChild(modalContentHome);
+  HomeDiv.appendChild(modalHome);
+  HomeDiv.appendChild(publicarButton);
+  HomeDiv.appendChild(headerHomepage);
 
   return HomeDiv;
 };
+
