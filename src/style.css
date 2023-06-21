@@ -662,23 +662,19 @@ body {
         flex-direction: column;
     }
 
-    .pruebaHome {
-        background-color: #211715;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        display: inline-block;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: medium;
+    .headerHomepage{
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        background-color: #80999f;
+        height: 5vh;
+        width: 100%;
     }
-}
-/*Estilos Home2*/
+
 
 .logoHome {
-    width: 80px;
-  object-fit: contain;
+    width: 40px;
+  
     
 }
 
@@ -691,13 +687,7 @@ body {
     padding-left: 1rem;
 }
 
-.headerHomePage{
-    display: flex;
-    flex-direction: row;
-    margin-top: 1%;
-    background-color: #afb4b5;
-    height: 100%;
-}
+
 .rightHome{
     width: 90%;
   display: flex;
@@ -716,11 +706,17 @@ body {
 
 }
 
-.publicarBtn{
+.bottomHomePage{
     display: flex;
-    align-items:start;
+    height: 95vh;
     justify-content: center;
 }
+.publicarButton{
+   
+    
+    }
+
+
 /*Estilos modal Home*/
 .modalHome{
     display: none;
@@ -734,7 +730,7 @@ body {
         background: rgb(0,0,0,0.5);
     }
 
- .modalContentHome{
+ .modalContentHome {
     margin: auto;
     padding: 1rem 1rem 2rem 1rem;
     text-align: center;
@@ -742,4 +738,12 @@ body {
     width: 80%;
     border-radius: 10px;
     position: relative;
- }
+
+}
+.modalBtnHome{ /*Botón publicar del modal*/
+    display: flex;
+    align-items:start;
+    justify-content: center;
+    border-color: yellow;
+}
+}

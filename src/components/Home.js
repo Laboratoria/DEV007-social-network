@@ -1,6 +1,22 @@
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.classList.add('HomeDiv');
+  
+  const headerHomepage = document.createElement('div');
+  headerHomepage.classList.add('headerHomepage');
+  headerHomepage.innerHTML += `
+    <div class="leftHome">
+      <img src= "./imagenes/logoFinal.png" class = "logoHome" alt= "logo">
+    </div>
+    <div class="rightHome">
+      <button type="button" id="HomeResumePageBtn">
+        cerrar sesión
+      </button>
+    </div>
+  `;
+
+  const bottomHomePage = document.createElement('div');
+  bottomHomePage.classList.add('bottomHomePage');
 
   const publicarButton = document.createElement('button');
   publicarButton.classList.add('publicarButton');
@@ -13,18 +29,7 @@ export const Home = (onNavigate) => {
  // const buttonLogin = document.createElement('button');
   //buttonLogin.classList.add('pruebaHome');
   //buttonLogin.textContent = 'Inicia sesion';
-const headerHomepage = document.createElement('div');
-  headerHomepage.classList.add('headerHomepage');
-  headerHomepage.innerHTML += `
-    <div class="leftHome">
-      <img src= "./imagenes/logoFinal.png" class = "logoHome" alt= "logo">
-    </div>
-    <div class="rightHome">
-      <button type="button" id="HomeResumePageBtn">
-        cerrar sesión
-      </button>
-    </div>
-  `;
+
 
   const modalHome = document.createElement('div');
   modalHome.classList.add('modalHome');
@@ -50,12 +55,12 @@ const headerHomepage = document.createElement('div');
   //buttonLogin.addEventListener('click', () => onNavigate('/'));
 
   //HomeDiv.appendChild(buttonLogin);
+  bottomHomePage.appendChild(publicarButton);
   modalContentHome.appendChild(endModalHome);
   modalHome.appendChild(modalContentHome);
   HomeDiv.appendChild(modalHome);
-  HomeDiv.appendChild(publicarButton);
   HomeDiv.appendChild(headerHomepage);
-
+  HomeDiv.appendChild(bottomHomePage);
   return HomeDiv;
 };
 
