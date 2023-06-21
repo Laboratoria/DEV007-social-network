@@ -25,5 +25,6 @@ export const agregarUnNuevoPost = (contenido, db, auth) => {
   return addDoc(collection(db,'post'), {
     contenido,
     usuario: auth.currentUser.email,
+    datetime: new Date()
   });
 };

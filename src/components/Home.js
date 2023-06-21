@@ -1,3 +1,4 @@
+import { auth, db, } from "../firebase";
 import {
   agregarUnNuevoPost,
 } from "../lib";
@@ -21,41 +22,36 @@ export const Home = (onNavigate) => {
 
   const bottomHomePage = document.createElement('div');
   bottomHomePage.classList.add('bottomHomePage');
+ 
+  const postPublicar = document.createElement('section');
+  postPublicar.classList.add('postPublicar');
 
   const publicarButton = document.createElement('button');
   publicarButton.classList.add('publicarButton');
-  publicarButton.textContent = 'Que estas pensando?';
+  publicarButton.textContent = '¿Qué estás pensando?';
 
   publicarButton.addEventListener("click", function () {
     document.querySelector(".modalHome").style.display = "flex";
   });
 
-  // const buttonLogin = document.createElement('button');
-  //buttonLogin.classList.add('pruebaHome');
-  //buttonLogin.textContent = 'Inicia sesion';
-
   const modalHome = document.createElement('div');
   modalHome.classList.add('modalHome');
+  
   const modalContentHome = document.createElement('div');
   modalContentHome.classList.add('modalContentHome');
   modalContentHome.setAttribute('id', 'modalPeageHome');
   modalContentHome.innerHTML += `
   <h1> CREAR PUBLICACIÓN </h1>
-  <input class = "modalInputHome" placeholder = "¿Que estas pensando?"></input>
+  <input class = "modalInputHome" placeholder = "¿Qué estás pensando?"></input>
   <button class = "modalBtnHome"> Publicar </button> 
 `;
   const endModalHome = document.createElement('span');
   endModalHome.classList.add('endModalHome');
   endModalHome.innerHTML = '&times;';
-  //const timeBtn= document.getElementById("publicarHomeBtn");
-  //timeBtn.addEventListener('click', function () {
-  //document.querySelector(".modalHome").style.display = 'flex';
-  //});
 
   endModalHome.addEventListener("click", function () {
     document.querySelector(".modalHome").style.display = "none";
   });
-  //buttonLogin.addEventListener('click', () => onNavigate('/'));
 
   //HomeDiv.appendChild(buttonLogin);
   modalContentHome.querySelector('.modalBtnHome').addEventListener(
@@ -64,18 +60,21 @@ export const Home = (onNavigate) => {
       const contenidoDelText = HomeDiv.querySelector(
         '.modalInputHome'
       );
-      agregarUnNuevoPost(contenidoDelText.value)
+      agregarUnNuevoPost(contenidoDelText.value, db, auth)
          .then(() => {})
-         .cath((err) => {
+         .catch((err) => {
           console.log(err);
          });
     }
   );
 
+  bottomHomePage.appendChild(postPublicar);
 
-  bottomHomePage.appendChild(publicarButton);
+  postPublicar.appendChild(publicarButton);
+
   modalContentHome.appendChild(endModalHome);
   modalHome.appendChild(modalContentHome);
+
   HomeDiv.appendChild(modalHome);
   HomeDiv.appendChild(headerHomepage);
   HomeDiv.appendChild(bottomHomePage);
