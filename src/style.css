@@ -61,7 +61,6 @@ body {
         border: 1px solid #1b444c;
         border-radius: 5px;
         padding: 0.5rem 2rem;
-
     }
 
     .modalButton{
@@ -584,7 +583,7 @@ body {
         border-radius: 10px;
         padding: 1rem 1rem;
         width: 50%;
-
+        font-size: large; 
     }
 
     .modalButton{
@@ -594,6 +593,7 @@ body {
         color: white;
         padding: 1rem;
         width: 30%;
+        font-size: large;
     }
 
     .closeModal{
@@ -766,30 +766,23 @@ body {
         font-size: x-large;
     }
 
-    /*Estilos Home*/
+/*Estilos Home*/
 
-    .HomeDiv {
-        background-color: #1b444c;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .headerHomepage{
-        display: flex;
-        flex-direction: row;
-        position: fixed;
-        background-color: #80999f;
-        height: 5vh;
-        width: 100%;
-    }
-
-
-.logoHome {
-    width: 40px;
-  
-    
+.HomeDiv {
+    display: flex;
+    height: 100vh;
+    background-color: #1b444c;
+    flex-direction: column;
 }
+
+.headerHomepage{
+    display: flex;
+    flex-direction: row;
+    background-color: #afb4b5;
+    height: 15vh;
+    width: 100%;
+    margin-top: 0.8rem;
+} 
 
 .leftHome{
     width: 30%;
@@ -800,6 +793,10 @@ body {
     padding-left: 1rem;
 }
 
+.logoHome {
+    width: 30%;
+  object-fit: contain;  
+}
 
 .rightHome{
     width: 90%;
@@ -818,32 +815,44 @@ body {
   cursor: pointer;
 
 }
-
 .bottomHomePage{
     display: flex;
-    height: 95vh;
+    height: 90vh;
     justify-content: center;
 }
+
 .publicarButton{
-   
-    
-    }
+    height: 5vh;
+    margin-top: 1rem;
+    border: 1px solid #afb4b5;
+    border-radius: 20px;
+    font-size:large;
+    padding-top: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 2rem;
+}
 
+.publicarBtn{
+    display: flex;
+    align-items:start;
+    justify-content: center;
+}
 
-/*Estilos modal Home*/
+    /*Estilos modal Home*/
 .modalHome{
     display: none;
-        position: fixed;
-        z-index: 1;
-        background-color: white;
-        border: 2px solid #1b444c;
-        border-radius: 20px;
-        width: 100vw;
-        height: 100vh;
-        background: rgb(0,0,0,0.5);
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    border: 2px solid #1b444c;
+    border-radius: 20px;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(0,0,0,0.5);
     }
 
- .modalContentHome {
+ .modalContentHome{
     margin: auto;
     padding: 1rem 1rem 2rem 1rem;
     text-align: center;
@@ -851,12 +860,14 @@ body {
     width: 80%;
     border-radius: 10px;
     position: relative;
+ }
 
-}
-.modalBtnHome{ /*Botón publicar del modal*/
-    display: flex;
-    align-items:start;
-    justify-content: center;
-    border-color: yellow;
-}
+ .endModalHome {
+    position: absolute;
+    top: 0.5rem;
+    right: 2.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #1b444c;
+ }
 }

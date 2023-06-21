@@ -62,4 +62,3 @@ export const Home = (onNavigate) => {
   HomeDiv.appendChild(bottomHomePage);
   return HomeDiv;
 };
-
