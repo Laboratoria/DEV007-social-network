@@ -1,3 +1,8 @@
+import { auth, db, } from "../firebase";
+import {
+  agregarUnNuevoPost,
+} from "../lib";
+
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.classList.add('HomeDiv');
@@ -20,7 +25,7 @@ export const Home = (onNavigate) => {
 
   const publicarButton = document.createElement('button');
   publicarButton.classList.add('publicarButton');
-  publicarButton.textContent = 'Que estas pensando?';
+  publicarButton.textContent = '¿Qué estás pensando?';
 
   publicarButton.addEventListener("click", function () {
     document.querySelector(".modalHome").style.display = "flex";
@@ -33,7 +38,7 @@ export const Home = (onNavigate) => {
   modalContentHome.setAttribute('id', 'modalPeageHome');
   modalContentHome.innerHTML += `
   <h1> CREAR PUBLICACIÓN </h1>
-  <input class = "modalInputHome" placeholder = "¿Que estas pensando?"></input>
+  <input class = "modalInputHome" placeholder = "¿Qué estás pensando?"></input>
   <button class = "modalBtnHome"> Publicar </button> 
 `;
   const endModalHome = document.createElement('span');
@@ -43,6 +48,22 @@ export const Home = (onNavigate) => {
   endModalHome.addEventListener("click", function () {
     document.querySelector(".modalHome").style.display = "none";
   });
+
+  //HomeDiv.appendChild(buttonLogin);
+  modalContentHome.querySelector('.modalBtnHome').addEventListener(
+    'click',
+    () => {
+      const contenidoDelText = HomeDiv.querySelector(
+        '.modalInputHome'
+      );
+      agregarUnNuevoPost(contenidoDelText.value, db, auth)
+         .then(() => {})
+         .catch((err) => {
+          console.log(err);
+         });
+    }
+  );
+
 
   bottomHomePage.appendChild(publicarButton);
   modalContentHome.appendChild(endModalHome);
