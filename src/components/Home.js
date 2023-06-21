@@ -22,6 +22,9 @@ export const Home = (onNavigate) => {
 
   const bottomHomePage = document.createElement('div');
   bottomHomePage.classList.add('bottomHomePage');
+ 
+  const postPublicar = document.createElement('section');
+  postPublicar.classList.add('postPublicar');
 
   const publicarButton = document.createElement('button');
   publicarButton.classList.add('publicarButton');
@@ -33,6 +36,7 @@ export const Home = (onNavigate) => {
 
   const modalHome = document.createElement('div');
   modalHome.classList.add('modalHome');
+  
   const modalContentHome = document.createElement('div');
   modalContentHome.classList.add('modalContentHome');
   modalContentHome.setAttribute('id', 'modalPeageHome');
@@ -64,10 +68,13 @@ export const Home = (onNavigate) => {
     }
   );
 
+  bottomHomePage.appendChild(postPublicar);
 
-  bottomHomePage.appendChild(publicarButton);
+  postPublicar.appendChild(publicarButton);
+
   modalContentHome.appendChild(endModalHome);
   modalHome.appendChild(modalContentHome);
+
   HomeDiv.appendChild(modalHome);
   HomeDiv.appendChild(headerHomepage);
   HomeDiv.appendChild(bottomHomePage);
