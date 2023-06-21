@@ -20,12 +20,12 @@ export const Register = (onNavigate) => {
 
   const inputName = document.createElement('input');
   inputName.setAttribute('type', 'text');
-  inputName.setAttribute('placeholder', 'Nombre y Apellidos');
+  inputName.setAttribute('placeholder', 'Nombre y Apellido');
   inputName.setAttribute('id', 'input-nombreApellido');
 
   const inputMail = document.createElement('input');
-  inputMail.setAttribute('type', 'text');
-  inputMail.setAttribute('placeholder', 'e-mail');
+  inputMail.setAttribute('type', 'email');
+  inputMail.setAttribute('placeholder', 'Correo electrónico');
   inputMail.setAttribute('id', 'input-email');
 
   const inputContraseña = document.createElement('input');
@@ -45,8 +45,10 @@ export const Register = (onNavigate) => {
 
   buttonRegistro.addEventListener('click', (e) => {
     e.preventDefault();
-  crearUsuarioConCorreoYContraseña(inputMail.value, inputContraseña.value);//.then(() => {onNavigate('/home');
-    onNavigate('/home');
+    crearUsuarioConCorreoYContraseña(inputMail.value, inputContraseña.value).then(() => {
+      alert('TU CUENTA HA SIDO CREADA, GRACIAS!');
+      onNavigate('/home');
+    });
   });
 
   containerRegister.appendChild(inputName);
@@ -61,4 +63,4 @@ export const Register = (onNavigate) => {
   registerDiv.appendChild(bottomRegister);
 
   return registerDiv;
-}
+};
