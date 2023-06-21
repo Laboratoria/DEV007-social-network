@@ -1,3 +1,7 @@
+import {
+  agregarUnNuevoPost,
+} from "../lib";
+
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.classList.add('HomeDiv');
@@ -54,6 +58,21 @@ export const Home = (onNavigate) => {
   //buttonLogin.addEventListener('click', () => onNavigate('/'));
 
   //HomeDiv.appendChild(buttonLogin);
+  modalContentHome.querySelector('.modalBtnHome').addEventListener(
+    'click',
+    () => {
+      const contenidoDelText = HomeDiv.querySelector(
+        '.modalInputHome'
+      );
+      agregarUnNuevoPost(contenidoDelText.value)
+         .then(() => {})
+         .cath((err) => {
+          console.log(err);
+         });
+    }
+  );
+
+
   bottomHomePage.appendChild(publicarButton);
   modalContentHome.appendChild(endModalHome);
   modalHome.appendChild(modalContentHome);
