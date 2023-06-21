@@ -1,48 +1,50 @@
-import {iniciarSesionConCorreoYContraseña, initSessionsWithGoogle} from '../lib';
+import {
+  iniciarSesionConCorreoYContraseña,
+  initSessionsWithGoogle,
+} from "../lib";
 
 export const Login = (onNavigate) => {
+  const loginContainer = document.createElement("div");
+  loginContainer.classList.add("loginContainer");
 
-  const loginContainer = document.createElement('div');
-  loginContainer.classList.add('loginContainer');
-  
-  const topSection = document.createElement('section');
-  topSection.classList.add('topSection');
+  const topSection = document.createElement("section");
+  topSection.classList.add("topSection");
   topSection.innerHTML += `
   <div class="imgLogo">
     <img src= "./imagenes/logoFinal.png" class = "logoRed" alt= "logo">
   </div>
 `;
- 
-  const bottomSection = document.createElement('section'); 
-  bottomSection.classList.add('bottomSection');
-  
-  const contenedorLogin = document.createElement('div');
-  contenedorLogin.classList.add('contenedorLogin');
 
-  const inputUsermail = document.createElement('input');
-  inputUsermail.classList.add('inputUsermail');
-  inputUsermail.setAttribute('type', 'email');
-  inputUsermail.setAttribute('placeholder', 'Correo electrónico');
+  const bottomSection = document.createElement("section");
+  bottomSection.classList.add("bottomSection");
 
-  const inputPassword = document.createElement('input');
-  inputPassword.classList.add('inputPassword');
-  inputPassword.setAttribute('type', 'password');
-  inputPassword.setAttribute('placeholder', 'Contraseña');
+  const contenedorLogin = document.createElement("div");
+  contenedorLogin.classList.add("contenedorLogin");
 
-  const loginButton = document.createElement('button');
-  loginButton.classList.add('loginButton1');
-  loginButton.textContent = 'Iniciar sesión';
+  const inputUsermail = document.createElement("input");
+  inputUsermail.classList.add("inputUsermail");
+  inputUsermail.setAttribute("type", "email");
+  inputUsermail.setAttribute("placeholder", "Correo electrónico");
 
-  const forgetLink = document.createElement('a');
-  forgetLink.classList.add('forgetLk');
-  forgetLink.textContent = ' ¿Olvidaste tu contraseña? ';
-  
-  const modalWindow = document.createElement('div');
-  modalWindow.classList.add('modalWindow');
+  const inputPassword = document.createElement("input");
+  inputPassword.classList.add("inputPassword");
+  inputPassword.setAttribute("type", "password");
+  inputPassword.setAttribute("placeholder", "Contraseña");
 
-  const modalContent = document.createElement('div');
-  modalContent.classList.add('modalContent');
-  modalContent.setAttribute('id', 'modalMain');
+  const loginButton = document.createElement("button");
+  loginButton.classList.add("loginButton1");
+  loginButton.textContent = "Iniciar sesión";
+
+  const forgetLink = document.createElement("a");
+  forgetLink.classList.add("forgetLk");
+  forgetLink.textContent = " ¿Olvidaste tu contraseña? ";
+
+  const modalWindow = document.createElement("div");
+  modalWindow.classList.add("modalWindow");
+
+  const modalContent = document.createElement("div");
+  modalContent.classList.add("modalContent");
+  modalContent.setAttribute("id", "modalMain");
   modalContent.innerHTML += `
   <h1> CONTRASEÑA OLVIDADA </h1>
   <p> Si ha olvidado su contraseña, introduzca la dirección registrada de correo por favor.
@@ -50,79 +52,84 @@ export const Login = (onNavigate) => {
   <input class = "modalInput" placeholder = "Correo electrónico"></input>
   <button class = "modalButton"> Continuar </button> 
 `;
-  const closeModal = document.createElement('span');
-  closeModal.classList.add('closeModal')
-  closeModal.innerHTML = '&times;';
+  const closeModal = document.createElement("span");
+  closeModal.classList.add("closeModal");
+  closeModal.innerHTML = "&times;";
 
-  const googleButton = document.createElement('button');
-  googleButton.classList.add('googleButton');
+  const googleButton = document.createElement("button");
+  googleButton.classList.add("googleButton");
   googleButton.innerHTML += `
   <p class = "textGoogle"> Continuar con Google </p>
 `;
 
-  const googleLogoContainer = document.createElement('div');
-  googleLogoContainer.classList.add('googleLogoContainer');
+  const googleLogoContainer = document.createElement("div");
+  googleLogoContainer.classList.add("googleLogoContainer");
 
-  const logoGoogle = document.createElement('img');
+  const logoGoogle = document.createElement("img");
   logoGoogle.src = "./imagenes/logo-google.png";
-  logoGoogle.classList.add('logoGoogle');
-  loginButton.alt = 'Google';
+  logoGoogle.classList.add("logoGoogle");
+  loginButton.alt = "Google";
 
-  const registerLink = document.createElement('p');
-  registerLink.classList.add('registerLk');
+  const registerLink = document.createElement("p");
+  registerLink.classList.add("registerLk");
   registerLink.innerHTML += `
   ¿No tienes una cuenta aún? <a href="/register" class="linkReg"> Regístrate </a>
 `;
 
-  const errorContainer = document.createElement('div');
-  errorContainer.classList.add('errorContainer');
+  const errorContainer = document.createElement("div");
+  errorContainer.classList.add("errorContainer");
 
-  const errorUsermail = document.createElement('span');
-  errorUsermail.classList.add('errorUsermail');
-  errorUsermail.textContent = '';
+  const errorUsermail = document.createElement("span");
+  errorUsermail.classList.add("errorUsermail");
+  errorUsermail.textContent = "";
 
-  const errorPassword = document.createElement('span');
-  errorPassword.classList.add('errorPassword');
-  errorPassword.textContent = '';
+  const errorPassword = document.createElement("span");
+  errorPassword.classList.add("errorPassword");
+  errorPassword.textContent = "";
 
-  forgetLink.addEventListener('click', function () {
-    document.querySelector(".modalWindow").style.display = 'flex';
+  forgetLink.addEventListener("click", function () {
+    document.querySelector(".modalWindow").style.display = "flex";
   });
 
-  closeModal.addEventListener("click", function() {
+  closeModal.addEventListener("click", function () {
     document.querySelector(".modalWindow").style.display = "none";
   });
 
-  //loginButton.addEventListener('click', () => onNavigate('/home'));
-
-  loginButton.addEventListener('click', async () => {
+  loginButton.addEventListener("click", async () => {
     try {
-    const loginEmail = inputUsermail.value;	    
-    const loginPassword = inputPassword.value;
-    const userInfoLogin = await iniciarSesionConCorreoYContraseña(loginEmail, loginPassword);
-    console.log(userInfoLogin);
-    alert('Inicio de sesión exitoso');
-    onNavigate('/home');
- } catch (error) {
+      const loginEmail = inputUsermail.value;
+      const loginPassword = inputPassword.value;
+      const userInfoLogin = await iniciarSesionConCorreoYContraseña(
+        loginEmail,
+        loginPassword
+      );
+      console.log(userInfoLogin);
+      alert("Inicio de sesión exitoso");
+      onNavigate("/home");
+    } catch (error) {
       console.error(error);
       const errorCode = error.code;
       console.log(errorCode);
       const errorMessage = error.message;
       console.log(errorMessage);
-      if (errorCode === 'auth/wrong-password') {
-        loginContainer.querySelector('.loginContainer .errorPassword').textContent = 'Contraseña incorrecta';
+      if (errorCode === "auth/wrong-password") {
+        loginContainer.querySelector(
+          ".loginContainer .errorPassword"
+        ).textContent = "Contraseña incorrecta";
       }
-      if (errorCode === 'auth/user-not-found') {
-        loginContainer.querySelector('.loginContainer .errorUsermail').textContent = 'Usuario no registrado';
+      if (errorCode === "auth/user-not-found") {
+        loginContainer.querySelector(
+          ".loginContainer .errorUsermail"
+        ).textContent = "Usuario no registrado";
       }
     }
   });
 
-  googleButton.addEventListener('click', () => {
+  googleButton.addEventListener("click", () => {
     initSessionsWithGoogle().then(() => {
-      onNavigate('/home');
+      onNavigate("/home");
     });
-   });
+  });
 
   modalContent.appendChild(closeModal);
   modalWindow.appendChild(modalContent);

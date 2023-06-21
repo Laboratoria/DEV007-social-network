@@ -30,7 +30,6 @@ export const Home = (onNavigate) => {
   //buttonLogin.classList.add('pruebaHome');
   //buttonLogin.textContent = 'Inicia sesion';
 
-
   const modalHome = document.createElement('div');
   modalHome.classList.add('modalHome');
   const modalContentHome = document.createElement('div');
@@ -63,4 +62,3 @@ export const Home = (onNavigate) => {
   HomeDiv.appendChild(bottomHomePage);
   return HomeDiv;
 };
-
