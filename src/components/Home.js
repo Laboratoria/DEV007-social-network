@@ -1,7 +1,7 @@
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.classList.add('HomeDiv');
-  
+
   const headerHomepage = document.createElement('div');
   headerHomepage.classList.add('headerHomepage');
   headerHomepage.innerHTML += `
@@ -25,10 +25,6 @@ export const Home = (onNavigate) => {
   publicarButton.addEventListener("click", function () {
     document.querySelector(".modalHome").style.display = "flex";
   });
- 
- // const buttonLogin = document.createElement('button');
-  //buttonLogin.classList.add('pruebaHome');
-  //buttonLogin.textContent = 'Inicia sesion';
 
   const modalHome = document.createElement('div');
   modalHome.classList.add('modalHome');
@@ -43,17 +39,11 @@ export const Home = (onNavigate) => {
   const endModalHome = document.createElement('span');
   endModalHome.classList.add('endModalHome');
   endModalHome.innerHTML = '&times;';
-  //const timeBtn= document.getElementById("publicarHomeBtn");
-  //timeBtn.addEventListener('click', function () {
-  //document.querySelector(".modalHome").style.display = 'flex';
-  //});
 
-  endModalHome.addEventListener("click", function() {
+  endModalHome.addEventListener("click", function () {
     document.querySelector(".modalHome").style.display = "none";
   });
-  //buttonLogin.addEventListener('click', () => onNavigate('/'));
 
-  //HomeDiv.appendChild(buttonLogin);
   bottomHomePage.appendChild(publicarButton);
   modalContentHome.appendChild(endModalHome);
   modalHome.appendChild(modalContentHome);
