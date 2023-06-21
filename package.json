@@ -19,16 +19,21 @@
     "dev": "vite dev src",
     "start": "npm run dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.js' --write"
+
   },
   "devDependencies": {
     "@babel/preset-env": "^7.19.4",
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^25.3.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "htmlhint": "^1.0.0",
     "jest": "^27.0.1",
+    "prettier": "^2.8.8",
     "regenerator-runtime": "^0.13.1",
     "stylelint": "^14.1.0",
     "stylelint-config-recommended": "^6.0.0",

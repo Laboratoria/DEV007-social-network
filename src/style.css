@@ -61,7 +61,6 @@ body {
         border: 1px solid #1b444c;
         border-radius: 5px;
         padding: 0.5rem 2rem;
-
     }
 
     .modalButton{
@@ -584,7 +583,7 @@ body {
         border-radius: 10px;
         padding: 1rem 1rem;
         width: 50%;
-
+        font-size: large; 
     }
 
     .modalButton{
@@ -594,6 +593,7 @@ body {
         color: white;
         padding: 1rem;
         width: 30%;
+        font-size: large;
     }
 
     .closeModal{
@@ -766,24 +766,94 @@ body {
         font-size: x-large;
     }
 
-    /*Estilos Home*/
+/*Estilos Home*/
 
-    .HomeDiv {
-        background-color: #1b444c;
+.HomeDiv {
+    display: flex;
+    height: 100vh;
+    background-color: #1b444c;
+    flex-direction: column;
+}
+
+.headerHomepage{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    background-color: #afb4b5;
+    height: 10vh;
+    width: 100%;
+} 
+
+.bottomHomePage{
+    display: flex;
+    height: 90vh;
+}
+
+.publicarButton{
+    display: flex;
+    align-items:start;
+    justify-content: center;
+}
+
+
+.logoHome {
+    width: 80px;
+  object-fit: contain;  
+}
+
+.leftHome{
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:left;
+    padding-left: 1rem;
+}
+
+.rightHome{
+    width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content: flex-end;
+}
+
+#HomeResumePageBtn{
+    font-size: 20px;
+  padding: 0.5rem 3rem;
+  border-radius: 40px;
+  border-color: white;
+  color: rgb(61, 60, 60);
+  cursor: pointer;
+
+}
+
+.publicarBtn{
+    display: flex;
+    align-items:start;
+    justify-content: center;
+}
+
+    /*Estilos modal Home*/
+.modalHome{
+    display: none;
+      /*  position: fixed;
+        z-index: 1;
+        background-color: white;
+        border: 2px solid #1b444c;
+        border-radius: 20px;
+        width: 100vw;
         height: 100vh;
-        display: flex;
-        flex-direction: column;
+        background: rgb(0,0,0,0.5);
     }
 
-    .pruebaHome {
-        background-color: #211715;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        display: inline-block;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: medium;
-    }
+ .modalContentHome{
+    margin: auto;
+    padding: 1rem 1rem 2rem 1rem;
+    text-align: center;
+    background: white;
+    width: 80%;
+    border-radius: 10px;
+    position: relative;
+ } */
 }
