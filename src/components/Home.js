@@ -1,7 +1,7 @@
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.classList.add('HomeDiv');
-  
+
   const headerHomepage = document.createElement('div');
   headerHomepage.classList.add('headerHomepage');
   headerHomepage.innerHTML += `
@@ -25,8 +25,8 @@ export const Home = (onNavigate) => {
   publicarButton.addEventListener("click", function () {
     document.querySelector(".modalHome").style.display = "flex";
   });
- 
- // const buttonLogin = document.createElement('button');
+
+  // const buttonLogin = document.createElement('button');
   //buttonLogin.classList.add('pruebaHome');
   //buttonLogin.textContent = 'Inicia sesion';
 
@@ -48,7 +48,7 @@ export const Home = (onNavigate) => {
   //document.querySelector(".modalHome").style.display = 'flex';
   //});
 
-  endModalHome.addEventListener("click", function() {
+  endModalHome.addEventListener("click", function () {
     document.querySelector(".modalHome").style.display = "none";
   });
   //buttonLogin.addEventListener('click', () => onNavigate('/'));
