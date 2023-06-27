@@ -6,6 +6,7 @@ import {
 import { getTask } from "../lib";    /*nuevo */
 //const taskContainer = document.getElementById('public-container')
 window.addEventListener('DOMContentLoaded', async () => {
+
   const querySnapshot = await getTask()
   //let html = ''
 //console.log(querySnapshot)
@@ -60,7 +61,7 @@ export const Home = (onNavigate) => {
   const modalHome = document.createElement('div');
   modalHome.classList.add('modalHome');
   
-  const modalContentHome = document.createElement('form'); /*cambie el div por form */
+  const modalContentHome = document.createElement('div'); /*cambie el div por form */
   modalContentHome.classList.add('modalContentHome');
   modalContentHome.setAttribute('id', 'modalPeageHome');
   modalContentHome.innerHTML += `
