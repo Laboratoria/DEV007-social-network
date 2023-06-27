@@ -1,6 +1,7 @@
 import { auth, db } from '../firebase';
 import { agregarUnNuevoPost } from '../lib';
-import { getTask } from '../lib'; /*nuevo */
+import { getTask } from '../lib'; 
+import { onGetTask } from '../lib';
 
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -29,9 +30,6 @@ export const Home = (onNavigate) => {
   publicarButton.classList.add('publicarButton');
   publicarButton.textContent = '¿Qué estás pensando?';
 
-  //const containerPublicHome = document.createElement('div');       /*nuevo */
-  //containerPublicHome.setAttribute('id', 'public-container');
-
   publicarButton.addEventListener('click', function () {
     document.querySelector('.modalHome').style.display = 'flex';
   });
@@ -39,8 +37,7 @@ export const Home = (onNavigate) => {
   const modalHome = document.createElement('div');
   modalHome.classList.add('modalHome');
 
-  const modalContentHome =
-    document.createElement('div'); /*cambie el div por form */
+  const modalContentHome = document.createElement('div'); 
   modalContentHome.classList.add('modalContentHome');
   modalContentHome.setAttribute('id', 'modalPeageHome');
   modalContentHome.innerHTML += `
@@ -48,9 +45,6 @@ export const Home = (onNavigate) => {
     <textarea id = "description" class = "modalInputHome" rows = "5" placeholder = "¿Qué estás pensando?"></textarea>
     <button class = "modalBtnHome"> Publicar </button>
  `;
-
-  //const containerPublicHome = document.createElement('div');
-  //containerPublicHome.setAttribute('id', 'public-container');
 
   const endModalHome = document.createElement('span');
   endModalHome.classList.add('endModalHome');
@@ -85,22 +79,21 @@ export const Home = (onNavigate) => {
   
   window.addEventListener('DOMContentLoaded', async () => {
     const taskContainer = document.getElementById('postContent');
-    const querySnapshot = await getTask();
-    let html = '';
-
-    //console.log(querySnapshot)
+    onGetTask((querySnapshot) => {
+      let html = '';
     querySnapshot.forEach((doc) => {
-      //console.log(doc.data())
       const post = doc.data();
       html += `
-   <div>
-    <p>${post.contenido}</p>
-   </div>
-  `;
-      //console.log(taskContainer)
+      <div>
+      
+       <p>${post.contenido}</p>
+      </div>
+     `;
+    });
+    taskContainer.innerHTML = html;
+    
     });
 
-    taskContainer.innerHTML = html;
   });
 
   sectionPost.appendChild(postContent);

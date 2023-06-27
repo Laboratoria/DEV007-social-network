@@ -28,19 +28,3 @@ window.onpopstate = () => {
 };
 
 rootDiv.appendChild(component(onNavigate));
-
-
-
-
-/*------------enlistar las publicaciones--------------*/
-  //console.log('works')
-  
-//const modalTaskForm = document.getElementById('modalPeageHome')
-  //modalTaskForm.addEventListener('submit', (e) => {
-  //e.preventDefault()
-  //console.log('submitted')
- //const descriptionForm = modalTaskForm['description']
- //console.log(descriptionForm.value)
-//modalTaskForm.reset()
-  //})
-
