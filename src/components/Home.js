@@ -34,6 +34,15 @@ export const Home = (onNavigate) => {
     document.querySelector(".modalHome").style.display = "flex";
   });
 
+  const sectionPost = document.createElement('section');
+  sectionPost.classList.add('sectionPost');
+  
+  const postContent = document.createElement('div');
+  postContent.classList.add('postContent');
+
+  const buttonsPost = document.createElement('div');
+  buttonsPost.classList.add('buttonsPost');
+
   const modalHome = document.createElement('div');
   modalHome.classList.add('modalHome');
   
@@ -42,18 +51,18 @@ export const Home = (onNavigate) => {
   modalContentHome.setAttribute('id', 'modalPeageHome');
   modalContentHome.innerHTML += `
   <h1> CREAR PUBLICACIÓN </h1>
-  <input class = "modalInputHome" placeholder = "¿Qué estás pensando?"></input>
+  <textarea class = "modalInputHome" rows = "3" placeholder = "¿Qué estás pensando?"></textarea>
   <button class = "modalBtnHome"> Publicar </button> 
 `;
+
   const endModalHome = document.createElement('span');
   endModalHome.classList.add('endModalHome');
   endModalHome.innerHTML = '&times;';
 
-  endModalHome.addEventListener("click", function () {
+ endModalHome.addEventListener("click", function () {
     document.querySelector(".modalHome").style.display = "none";
   });
 
-  //HomeDiv.appendChild(buttonLogin);
   modalContentHome.querySelector('.modalBtnHome').addEventListener(
     'click',
     () => {
@@ -67,10 +76,14 @@ export const Home = (onNavigate) => {
          });
     }
   );
-
-  bottomHomePage.appendChild(postPublicar);
-
+  
+ 
+  sectionPost.appendChild(postContent);
+  sectionPost.appendChild(buttonsPost);
   postPublicar.appendChild(publicarButton);
+  
+  bottomHomePage.appendChild(postPublicar);
+  bottomHomePage.appendChild(sectionPost);
 
   modalContentHome.appendChild(endModalHome);
   modalHome.appendChild(modalContentHome);
