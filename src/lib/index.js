@@ -5,8 +5,8 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
-import { auth } from "../firebase";
-import { collection, addDoc } from "@firebase/firestore";
+import { auth, db } from "../firebase";                              /*"db" nuevo */
+import { collection, addDoc, getDocs } from "@firebase/firestore";   /*"getDocs" nuevo */
 
 export const crearUsuarioConCorreoYContraseña = (email, contraseña) => {
   return createUserWithEmailAndPassword(auth, email, contraseña);
@@ -28,3 +28,8 @@ export const agregarUnNuevoPost = (contenido, db, auth) => {
     datetime: new Date()
   });
 };
+
+/*----------  NUEVO----------*/
+export const getTask = () => getDocs(collection(db, 'post'))
+
+
