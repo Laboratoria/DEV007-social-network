@@ -1,6 +1,5 @@
 import { auth, db } from '../firebase';
 import { agregarUnNuevoPost } from '../lib';
-import { getTask } from '../lib'; 
 import { onGetTask } from '../lib';
 
 export const Home = (onNavigate) => {
@@ -40,11 +39,22 @@ export const Home = (onNavigate) => {
   const modalContentHome = document.createElement('div'); 
   modalContentHome.classList.add('modalContentHome');
   modalContentHome.setAttribute('id', 'modalPeageHome');
-  modalContentHome.innerHTML += `
-    <label for= "description"> CREAR PUBLICACIÓN: </label>
-    <textarea id = "description" class = "modalInputHome" rows = "5" placeholder = "¿Qué estás pensando?"></textarea>
-    <button class = "modalBtnHome"> Publicar </button>
- `;
+  // modalContentHome.innerHTML += `
+  //    <label for= "description"> CREAR PUBLICACIÓN: </label>
+  //    <textarea id = "description" class = "modalInputHome" rows = "5" placeholder = "¿Qué estás pensando?"></textarea>
+  //   <button class = "modalBtnHome"> Publicar </button>
+  // `;
+
+  const labelModal = document.createElement('label');
+  labelModal.classList.add('labelModal');
+
+  const textareaModal = document.createElement('textarea');
+  textareaModal.classList.add('textAreaModal');
+
+  const modalBtnHome = document.createElement('button');
+  modalBtnHome.classList.add('modalBtnHome');
+  modalBtnHome.textContent = 'Publicar';
+
 
   const endModalHome = document.createElement('span');
   endModalHome.classList.add('endModalHome');
@@ -53,6 +63,7 @@ export const Home = (onNavigate) => {
   endModalHome.addEventListener('click', function () {
     document.querySelector('.modalHome').style.display = 'none';
   });
+
 
   const sectionPost = document.createElement('section');
   sectionPost.classList.add('sectionPost');
@@ -65,12 +76,13 @@ export const Home = (onNavigate) => {
   buttonsPost.classList.add('buttonsPost');
 
 
-  modalContentHome
-    .querySelector('.modalBtnHome')
+  modalBtnHome
     .addEventListener('click', () => {
-      const contenidoDelText = HomeDiv.querySelector('.modalInputHome');
+      const contenidoDelText = modalContentHome.querySelector('.textAreaModal');
       agregarUnNuevoPost(contenidoDelText.value, db, auth)
-        .then(() => {})
+        .then(() => {
+          modalHome.style.display = 'none';
+        })
         .catch((err) => {
           console.log(err);
         });
@@ -83,9 +95,10 @@ export const Home = (onNavigate) => {
       let html = '';
     querySnapshot.forEach((doc) => {
       const post = doc.data();
+      const postId = doc.id;
       html += `
       <div>
-      
+       <div id="${postId}" class = "postCont"></div>
        <p>${post.contenido}</p>
       </div>
      `;
@@ -103,6 +116,9 @@ export const Home = (onNavigate) => {
   bottomHomePage.appendChild(postPublicar);
   bottomHomePage.appendChild(sectionPost);
 
+  modalContentHome.appendChild(labelModal);
+  modalContentHome.appendChild(textareaModal);
+  modalContentHome.appendChild(modalBtnHome);
   modalContentHome.appendChild(endModalHome);
   modalHome.appendChild(modalContentHome);
 
