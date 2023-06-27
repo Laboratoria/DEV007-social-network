@@ -30,6 +30,6 @@ export const agregarUnNuevoPost = (contenido, db, auth) => {
 };
 
 /*----------  NUEVO----------*/
-export const getTask = () => getDocs(collection(db, 'post'))
+export const getTask = () => getDocs(collection(db, 'post'));
 
 
