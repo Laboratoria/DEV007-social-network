@@ -1,28 +1,7 @@
-import { auth, db } from "../firebase";
-import {
-  agregarUnNuevoPost
-} from "../lib";
-
-import { getTask } from "../lib";    /*nuevo */
-//const taskContainer = document.getElementById('public-container')
-window.addEventListener('DOMContentLoaded', async () => {
-
-  const querySnapshot = await getTask()
-  //let html = ''
-//console.log(querySnapshot)
-querySnapshot.forEach(doc => {
-  console.log(doc.data())
-  //const post = doc.data()
-  //html += `
-  //<div>
-  //<p>${post.contenido}</p>
-  //</div>
-  //`
-  //console.log(taskContainer)
-})
-//taskContainer.innerHTML = html
-})
-
+import { auth, db } from '../firebase';
+import { agregarUnNuevoPost } from '../lib';
+import { getTask } from '../lib'; 
+import { onGetTask } from '../lib';
 
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -43,7 +22,7 @@ export const Home = (onNavigate) => {
 
   const bottomHomePage = document.createElement('div');
   bottomHomePage.classList.add('bottomHomePage');
- 
+
   const postPublicar = document.createElement('section');
   postPublicar.classList.add('postPublicar');
 
@@ -51,53 +30,78 @@ export const Home = (onNavigate) => {
   publicarButton.classList.add('publicarButton');
   publicarButton.textContent = '¿Qué estás pensando?';
 
-  //const containerPublicHome = document.createElement('div');       /*nuevo */
-  //containerPublicHome.setAttribute('id', 'public-container');
-
-  publicarButton.addEventListener("click", function () {
-    document.querySelector(".modalHome").style.display = "flex";
+  publicarButton.addEventListener('click', function () {
+    document.querySelector('.modalHome').style.display = 'flex';
   });
 
   const modalHome = document.createElement('div');
   modalHome.classList.add('modalHome');
-  
-  const modalContentHome = document.createElement('div'); /*cambie el div por form */
+
+  const modalContentHome = document.createElement('div'); 
   modalContentHome.classList.add('modalContentHome');
   modalContentHome.setAttribute('id', 'modalPeageHome');
   modalContentHome.innerHTML += `
-  <label for= "description"> CREAR PUBLICACIÓN: </label>
-  <textarea id = "description" class = "modalInputHome" rows = "5" placeholder = "¿Qué estás pensando?"></textarea>
-  <button class = "modalBtnHome"> Publicar </button>
-`;
-  const containerPublicHome = document.createElement('div');
-  containerPublicHome.setAttribute('id', 'public-container');
+    <label for= "description"> CREAR PUBLICACIÓN: </label>
+    <textarea id = "description" class = "modalInputHome" rows = "5" placeholder = "¿Qué estás pensando?"></textarea>
+    <button class = "modalBtnHome"> Publicar </button>
+ `;
 
   const endModalHome = document.createElement('span');
   endModalHome.classList.add('endModalHome');
   endModalHome.innerHTML = '&times;';
 
-  endModalHome.addEventListener("click", function () {
-    document.querySelector(".modalHome").style.display = "none";
+  endModalHome.addEventListener('click', function () {
+    document.querySelector('.modalHome').style.display = 'none';
   });
 
-  //HomeDiv.appendChild(buttonLogin);
-  modalContentHome.querySelector('.modalBtnHome').addEventListener(
-    'click',
-    () => {
-      const contenidoDelText = HomeDiv.querySelector(
-        '.modalInputHome'
-      );
+  const sectionPost = document.createElement('section');
+  sectionPost.classList.add('sectionPost');
+
+  const postContent = document.createElement('div');
+  postContent.classList.add('postContent');
+  postContent.setAttribute('id', 'postContent');
+
+  const buttonsPost = document.createElement('div');
+  buttonsPost.classList.add('buttonsPost');
+
+
+  modalContentHome
+    .querySelector('.modalBtnHome')
+    .addEventListener('click', () => {
+      const contenidoDelText = HomeDiv.querySelector('.modalInputHome');
       agregarUnNuevoPost(contenidoDelText.value, db, auth)
-         .then(() => {})
-         .catch((err) => {
+        .then(() => {})
+        .catch((err) => {
           console.log(err);
-         });
-    }
-  );
+        });
+    });
+
+  
+  window.addEventListener('DOMContentLoaded', async () => {
+    const taskContainer = document.getElementById('postContent');
+    onGetTask((querySnapshot) => {
+      let html = '';
+    querySnapshot.forEach((doc) => {
+      const post = doc.data();
+      html += `
+      <div>
+      
+       <p>${post.contenido}</p>
+      </div>
+     `;
+    });
+    taskContainer.innerHTML = html;
+    
+    });
+
+  });
+
+  sectionPost.appendChild(postContent);
+  sectionPost.appendChild(buttonsPost);
+  postPublicar.appendChild(publicarButton);
 
   bottomHomePage.appendChild(postPublicar);
-
-  postPublicar.appendChild(publicarButton);
+  bottomHomePage.appendChild(sectionPost);
 
   modalContentHome.appendChild(endModalHome);
   modalHome.appendChild(modalContentHome);
@@ -105,5 +109,6 @@ export const Home = (onNavigate) => {
   HomeDiv.appendChild(modalHome);
   HomeDiv.appendChild(headerHomepage);
   HomeDiv.appendChild(bottomHomePage);
+
   return HomeDiv;
 };
