@@ -83,7 +83,7 @@ export const Home = (onNavigate) => {
     getData();
   });
 
-  const getData = () => {
+  const getData = () => {     //función que crea el post y su contenedor y recorre el array de los post//
     onGetTask((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const post = doc.data();
@@ -100,9 +100,9 @@ export const Home = (onNavigate) => {
         postContent.setAttribute('id', postId);
         postContent.innerHTML = `<p>${post.contenido}</p>`;
 
-        //const buttonEdit = document.createElement('button');
-        //buttonEdit.classList.add('buttonEdit');
-        //buttonEdit.textContent = 'Editar';
+        const buttonEdit = document.createElement('button');
+        buttonEdit.classList.add('buttonEdit');
+        buttonEdit.textContent = 'Editar';
         //buttonEdit.setAttribute('data-id', doc.id);
 
       
@@ -123,15 +123,17 @@ export const Home = (onNavigate) => {
     
         });
 
-        //const bottomPost = document.createElement('section');
-        //bottomPost = classList.add('bottomPost');
+        const bottomPost = document.createElement('section');
+        bottomPost.classList.add('bottomPost');
 
 
         topPost.appendChild(postContent);
-        //topPost.appendChild(buttonEdit);
-        topPost.appendChild(buttonErase);
+
+        bottomPost.appendChild(buttonEdit);
+        bottomPost.appendChild(buttonErase);
+        
         postContainer.insertAdjacentElement('afterbegin', topPost);
-        //postContainer.insertAdjacentElement('afterbegin', bottomPost);
+        postContainer.appendChild(bottomPost);
         sectionPost.appendChild(postContainer);
     
       });
