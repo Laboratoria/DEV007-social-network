@@ -10,7 +10,7 @@ export const Home = (onNavigate) => {
   headerHomepage.classList.add('headerHomepage');
   headerHomepage.innerHTML += `
     <div class="leftHome">
-      <img src= "./imagenes/logoFinal.png" class = "logoHome" alt= "logo">
+      <img src= "./imagenes/logoFinal.png" class="logoHome" alt="logo">
     </div>
     <div class="rightHome">
       <button type="button" id="HomeResumePageBtn">
@@ -36,14 +36,9 @@ export const Home = (onNavigate) => {
   const modalHome = document.createElement('div');
   modalHome.classList.add('modalHome');
 
-  const modalContentHome = document.createElement('div'); 
+  const modalContentHome = document.createElement('div');
   modalContentHome.classList.add('modalContentHome');
   modalContentHome.setAttribute('id', 'modalPeageHome');
-  // modalContentHome.innerHTML += `
-  //    <label for= "description"> CREAR PUBLICACIÓN: </label>
-  //    <textarea id = "description" class = "modalInputHome" rows = "5" placeholder = "¿Qué estás pensando?"></textarea>
-  //   <button class = "modalBtnHome"> Publicar </button>
-  // `;
 
   const labelModal = document.createElement('label');
   labelModal.classList.add('labelModal');
@@ -55,7 +50,6 @@ export const Home = (onNavigate) => {
   modalBtnHome.classList.add('modalBtnHome');
   modalBtnHome.textContent = 'Publicar';
 
-
   const endModalHome = document.createElement('span');
   endModalHome.classList.add('endModalHome');
   endModalHome.innerHTML = '&times;';
@@ -64,53 +58,52 @@ export const Home = (onNavigate) => {
     document.querySelector('.modalHome').style.display = 'none';
   });
 
-
   const sectionPost = document.createElement('section');
   sectionPost.classList.add('sectionPost');
 
-  const postContent = document.createElement('div');
-  postContent.classList.add('postContent');
-  postContent.setAttribute('id', 'postContent');
+  
 
-  const buttonsPost = document.createElement('div');
-  buttonsPost.classList.add('buttonsPost');
-
-
-  modalBtnHome
-    .addEventListener('click', () => {
-      const contenidoDelText = modalContentHome.querySelector('.textAreaModal');
-      agregarUnNuevoPost(contenidoDelText.value, db, auth)
-        .then(() => {
-          modalHome.style.display = 'none';
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    });
+   modalBtnHome.addEventListener('click', () => {
+    //const contenidoDelText = modalContentHome.querySelector('.textAreaModal');
+    //agregarUnNuevoPost(contenidoDelText.value, db, auth)
+    agregarUnNuevoPost(textareaModal.value, db, auth)
+      .then(() => {
+        textareaModal.value = '';
+        modalHome.style.display = 'none';
+        sectionPost.innerHTML = '';
+        getData();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 
   
   window.addEventListener('DOMContentLoaded', async () => {
-    const taskContainer = document.getElementById('postContent');
-    onGetTask((querySnapshot) => {
-      let html = '';
-    querySnapshot.forEach((doc) => {
-      const post = doc.data();
-      const postId = doc.id;
-      html += `
-      <div>
-       <div id="${postId}" class = "postCont"></div>
-       <p>${post.contenido}</p>
-      </div>
-     `;
-    });
-    taskContainer.innerHTML = html;
-    
-    });
-
+    getData();
   });
 
-  sectionPost.appendChild(postContent);
-  sectionPost.appendChild(buttonsPost);
+  const getData = () => {
+    onGetTask((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const post = doc.data();
+        const postId = doc.id;
+
+        const postContainer = document.createElement('div');
+        postContainer.setAttribute('id', 'postContainer');
+        const postContent = document.createElement('div');
+        postContent.classList.add('postContent');
+        postContent.setAttribute('id', postId);
+        postContent.innerHTML = `<p>${post.contenido}</p>`;
+  
+        postContainer.insertAdjacentElement('afterbegin', postContent);
+        sectionPost.appendChild(postContainer);
+    
+      });
+    });
+  }
+
+  //sectionPost.appendChild(buttonsPost);
   postPublicar.appendChild(publicarButton);
 
   bottomHomePage.appendChild(postPublicar);
