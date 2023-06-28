@@ -6,7 +6,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth, db } from "../firebase";                              /*"db" nuevo */
-import { collection, addDoc, getDocs, onSnapshot } from "@firebase/firestore";   /*"getDocs" nuevo */
+import { collection, addDoc, getDocs, onSnapshot, deleteDoc, doc } from "@firebase/firestore";   /*"getDocs" nuevo */
 
 export const crearUsuarioConCorreoYContraseña = (email, contraseña) => {
   return createUserWithEmailAndPassword(auth, email, contraseña);
@@ -32,5 +32,6 @@ export const agregarUnNuevoPost = (contenido, db, auth) => {
 /*----------  FUNCIONES PARA ENLISTAR LOS POST----------*/
 export const getTask = () => getDocs(collection(db, 'post'));
 export const onGetTask = (callback) => onSnapshot(collection(db, 'post'), callback)
+export const deleteTask = (id) => deleteDoc(doc(db, "task", id));
 
 

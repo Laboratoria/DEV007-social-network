@@ -1,6 +1,7 @@
 import { auth, db } from '../firebase';
 import { agregarUnNuevoPost } from '../lib';
 import { onGetTask } from '../lib';
+import { deleteTask } from '../lib';
 
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -77,7 +78,35 @@ export const Home = (onNavigate) => {
 
   
   window.addEventListener('DOMContentLoaded', async () => {
+<<<<<<< HEAD
+    const taskContainer = document.getElementById('postContent');
+    onGetTask((querySnapshot) => {
+      let html = '';
+    querySnapshot.forEach((doc) => {
+      const post = doc.data();
+      html += `
+      <div>
+      
+       <p>${post.contenido}</p>
+       <button class= 'btn-delete' data-id="${doc.id}">Delete</button>
+      </div>
+     `;
+    });
+    taskContainer.innerHTML = html;
+
+    const btnsDelete = taskContainer.querySelectorAll('.btn-delete')
+
+    btnsDelete.forEach(btn => {
+      btn.addEventListener('click', ({target: { dataset }}) => {
+          deleteTask(dataset.id)
+      })
+    })
+    
+    });
+
+=======
     getData();
+>>>>>>> 707c970243e27ba4ac3a757a0dd7bea5c8ca019a
   });
 
   const getData = () => {
