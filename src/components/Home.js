@@ -2,6 +2,7 @@ import { auth, db } from '../firebase';
 import { agregarUnNuevoPost } from '../lib';
 import { getTask } from '../lib'; 
 import { onGetTask } from '../lib';
+import { deleteTask } from '../lib';
 
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -87,10 +88,19 @@ export const Home = (onNavigate) => {
       <div>
       
        <p>${post.contenido}</p>
+       <button class= 'btn-delete' data-id="${doc.id}">Delete</button>
       </div>
      `;
     });
     taskContainer.innerHTML = html;
+
+    const btnsDelete = taskContainer.querySelectorAll('.btn-delete')
+
+    btnsDelete.forEach(btn => {
+      btn.addEventListener('click', ({target: { dataset }}) => {
+          deleteTask(dataset.id)
+      })
+    })
     
     });
 
