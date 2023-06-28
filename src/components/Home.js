@@ -85,7 +85,6 @@ export const Home = (onNavigate) => {
       const post = doc.data();
       html += `
       <div>
-      
        <p>${post.contenido}</p>
       </div>
      `;
