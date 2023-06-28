@@ -1,5 +1,5 @@
 import { auth, db } from '../firebase';
-import { agregarUnNuevoPost, deleteTask } from '../lib';
+import { agregarUnNuevoPost } from '../lib';
 import { onGetTask } from '../lib';
 import { deletePost } from '../lib';
 
@@ -76,14 +76,14 @@ export const Home = (onNavigate) => {
         console.log(err);
       });
   });
-  
-  
+
+  /*---------------mostrar post---------------- */
   window.addEventListener('DOMContentLoaded', async () => {
     sectionPost.innerHTML = '';
     getData();
   });
 
-  const getData = () => {
+  const getData = () => {            //función que crea el post y su contenedor y recorre el array de los post//
     onGetTask((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const post = doc.data();
@@ -91,7 +91,6 @@ export const Home = (onNavigate) => {
 
         const postContainer = document.createElement('div');
         postContainer.setAttribute('id', 'postContainer');
-        postContainer.classList.add('contenedorPost');
 
         const topPost = document.createElement('section');
         topPost.classList.add('topPost');
@@ -99,17 +98,19 @@ export const Home = (onNavigate) => {
         const postContent = document.createElement('div');
         postContent.classList.add('postContent');
         postContent.setAttribute('id', postId);
-        postContent.innerHTML = `<p>${post.contenido}</p>`;
+        postContent.innerHTML = `
+        <header>${post.usuario}</header>
+        <p>${post.contenido}</p>
+        `;
 
         //const buttonEdit = document.createElement('button');
         //buttonEdit.classList.add('buttonEdit');
         //buttonEdit.textContent = 'Editar';
         //buttonEdit.setAttribute('data-id', doc.id);
 
-      
+      /*--------------borrar post----------------- */
         const buttonErase = document.createElement('button');
         buttonErase.classList.add('buttonErase');
-        buttonErase.setAttribute('data-id', doc.id);
         buttonErase.textContent = 'Borrar';
         buttonErase.setAttribute('data-id', doc.id);
         buttonErase.addEventListener('click', () => {
@@ -124,14 +125,6 @@ export const Home = (onNavigate) => {
             });
     
         });
-
-        
-        const borrar = sectionPost.querySelectorAll('.buttonErase')
-        borrar.forEach(btn => {
-        btn.addEventListener('click', ({target: { dataset }}) => {
-        deleteTask(dataset.id);
-    })
-  })
 
         //const bottomPost = document.createElement('section');
         //bottomPost = classList.add('bottomPost');
