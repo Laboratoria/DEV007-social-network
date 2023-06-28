@@ -99,9 +99,11 @@ export const Home = (onNavigate) => {
 
         const buttonEdit = document.createElement('button');
         buttonEdit.classList.add('buttonEdit');
+        buttonEdit.textContent = 'Editar';
 
         const buttonErase = document.createElement('button');
         buttonErase.classList.add('buttonErase');
+        buttonErase.textContent = 'Borrar';
 
         //const bottomPost = document.createElement('section');
         //bottomPost = classList.add('bottomPost');
