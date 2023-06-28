@@ -77,7 +77,7 @@ export const Home = (onNavigate) => {
       });
   });
 
-  
+  /*---------------mostrar post---------------- */
   window.addEventListener('DOMContentLoaded', async () => {
     sectionPost.innerHTML = '';
     getData();
@@ -98,14 +98,17 @@ export const Home = (onNavigate) => {
         const postContent = document.createElement('div');
         postContent.classList.add('postContent');
         postContent.setAttribute('id', postId);
-        postContent.innerHTML = `<p>${post.contenido}</p>`;
+        postContent.innerHTML = `
+        <header>${post.usuario}</header>
+        <p>${post.contenido}</p>
+        `;
 
         const buttonEdit = document.createElement('button');
         buttonEdit.classList.add('buttonEdit');
         buttonEdit.textContent = 'Editar';
         //buttonEdit.setAttribute('data-id', doc.id);
 
-      
+      /*--------------borrar post----------------- */
         const buttonErase = document.createElement('button');
         buttonErase.classList.add('buttonErase');
         buttonErase.textContent = 'Borrar';
