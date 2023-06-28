@@ -1,6 +1,5 @@
 import { auth, db } from '../firebase';
-import { agregarUnNuevoPost } from '../lib';
-import { getTask } from '../lib'; 
+import { agregarUnNuevoPost, deleteTask } from '../lib';
 import { onGetTask } from '../lib';
 
 export const Home = (onNavigate) => {
@@ -11,7 +10,7 @@ export const Home = (onNavigate) => {
   headerHomepage.classList.add('headerHomepage');
   headerHomepage.innerHTML += `
     <div class="leftHome">
-      <img src= "./imagenes/logoFinal.png" class = "logoHome" alt= "logo">
+      <img src= "./imagenes/logoFinal.png" class="logoHome" alt="logo">
     </div>
     <div class="rightHome">
       <button type="button" id="HomeResumePageBtn">
@@ -37,14 +36,19 @@ export const Home = (onNavigate) => {
   const modalHome = document.createElement('div');
   modalHome.classList.add('modalHome');
 
-  const modalContentHome = document.createElement('div'); 
+  const modalContentHome = document.createElement('div');
   modalContentHome.classList.add('modalContentHome');
   modalContentHome.setAttribute('id', 'modalPeageHome');
-  modalContentHome.innerHTML += `
-    <label for= "description"> CREAR PUBLICACIÓN: </label>
-    <textarea id = "description" class = "modalInputHome" rows = "5" placeholder = "¿Qué estás pensando?"></textarea>
-    <button class = "modalBtnHome"> Publicar </button>
- `;
+
+  const labelModal = document.createElement('label');
+  labelModal.classList.add('labelModal');
+
+  const textareaModal = document.createElement('textarea');
+  textareaModal.classList.add('textAreaModal');
+
+  const modalBtnHome = document.createElement('button');
+  modalBtnHome.classList.add('modalBtnHome');
+  modalBtnHome.textContent = 'Publicar';
 
   const endModalHome = document.createElement('span');
   endModalHome.classList.add('endModalHome');
@@ -57,51 +61,83 @@ export const Home = (onNavigate) => {
   const sectionPost = document.createElement('section');
   sectionPost.classList.add('sectionPost');
 
-  const postContent = document.createElement('div');
-  postContent.classList.add('postContent');
-  postContent.setAttribute('id', 'postContent');
+  
 
-  const buttonsPost = document.createElement('div');
-  buttonsPost.classList.add('buttonsPost');
-
-
-  modalContentHome
-    .querySelector('.modalBtnHome')
-    .addEventListener('click', () => {
-      const contenidoDelText = HomeDiv.querySelector('.modalInputHome');
-      agregarUnNuevoPost(contenidoDelText.value, db, auth)
-        .then(() => {})
-        .catch((err) => {
-          console.log(err);
-        });
-    });
-
+   modalBtnHome.addEventListener('click', () => {
+    agregarUnNuevoPost(textareaModal.value, db, auth)
+      .then(() => {
+        textareaModal.value = '';
+        modalHome.style.display = 'none';
+        getData();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+  
   
   window.addEventListener('DOMContentLoaded', async () => {
-    const taskContainer = document.getElementById('postContent');
-    onGetTask((querySnapshot) => {
-      let html = '';
-    querySnapshot.forEach((doc) => {
-      const post = doc.data();
-      html += `
-      <div>
-       <p>${post.contenido}</p>
-      </div>
-     `;
-    });
-    taskContainer.innerHTML = html;
-    
-    });
-
+    getData();
   });
 
-  sectionPost.appendChild(postContent);
-  sectionPost.appendChild(buttonsPost);
+  const getData = () => {
+    onGetTask((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const post = doc.data();
+        const postId = doc.id;
+
+        const postContainer = document.createElement('div');
+        postContainer.setAttribute('id', 'postContainer');
+        postContainer.classList.add('contenedorPost');
+
+        const topPost = document.createElement('section');
+        topPost.classList.add('topPost');
+
+        const postContent = document.createElement('div');
+        postContent.classList.add('postContent');
+        postContent.setAttribute('id', postId);
+        postContent.innerHTML = `<p>${post.contenido}</p>`;
+
+        const buttonEdit = document.createElement('button');
+        buttonEdit.classList.add('buttonEdit');
+        buttonEdit.textContent = 'Editar';
+
+        const buttonErase = document.createElement('button');
+        buttonErase.classList.add('buttonErase');
+        buttonErase.setAttribute('data-id', doc.id);
+        buttonErase.textContent = 'Borrar';
+
+        
+        const borrar = sectionPost.querySelectorAll('.buttonErase')
+        borrar.forEach(btn => {
+        btn.addEventListener('click', ({target: { dataset }}) => {
+        deleteTask(dataset.id);
+    })
+  })
+
+        //const bottomPost = document.createElement('section');
+        //bottomPost = classList.add('bottomPost');
+
+
+        topPost.appendChild(postContent);
+        topPost.appendChild(buttonEdit);
+        topPost.appendChild(buttonErase);
+        postContainer.insertAdjacentElement('afterbegin', topPost);
+        //postContainer.insertAdjacentElement('afterbegin', bottomPost);
+        sectionPost.appendChild(postContainer);
+    
+      });
+    });
+  }
+
   postPublicar.appendChild(publicarButton);
 
   bottomHomePage.appendChild(postPublicar);
   bottomHomePage.appendChild(sectionPost);
 
+  modalContentHome.appendChild(labelModal);
+  modalContentHome.appendChild(textareaModal);
+  modalContentHome.appendChild(modalBtnHome);
   modalContentHome.appendChild(endModalHome);
   modalHome.appendChild(modalContentHome);
 
