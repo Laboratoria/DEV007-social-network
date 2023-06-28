@@ -1,6 +1,7 @@
 import { auth, db } from '../firebase';
 import { agregarUnNuevoPost, deleteTask } from '../lib';
 import { onGetTask } from '../lib';
+import { deletePost } from '../lib';
 
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -68,6 +69,7 @@ export const Home = (onNavigate) => {
       .then(() => {
         textareaModal.value = '';
         modalHome.style.display = 'none';
+        sectionPost.innerHTML = '';
         getData();
       })
       .catch((err) => {
@@ -77,6 +79,7 @@ export const Home = (onNavigate) => {
   
   
   window.addEventListener('DOMContentLoaded', async () => {
+    sectionPost.innerHTML = '';
     getData();
   });
 
@@ -98,14 +101,29 @@ export const Home = (onNavigate) => {
         postContent.setAttribute('id', postId);
         postContent.innerHTML = `<p>${post.contenido}</p>`;
 
-        const buttonEdit = document.createElement('button');
-        buttonEdit.classList.add('buttonEdit');
-        buttonEdit.textContent = 'Editar';
+        //const buttonEdit = document.createElement('button');
+        //buttonEdit.classList.add('buttonEdit');
+        //buttonEdit.textContent = 'Editar';
+        //buttonEdit.setAttribute('data-id', doc.id);
 
+      
         const buttonErase = document.createElement('button');
         buttonErase.classList.add('buttonErase');
         buttonErase.setAttribute('data-id', doc.id);
         buttonErase.textContent = 'Borrar';
+        buttonErase.setAttribute('data-id', doc.id);
+        buttonErase.addEventListener('click', () => {
+          const postId = buttonErase.getAttribute('data-id');
+          deletePost(postId)
+            .then(() => {
+              sectionPost.innerHTML = '';
+              getData();
+            })
+            .catch((error) => {
+              console.log('Error al borrar el post:', error);
+            });
+    
+        });
 
         
         const borrar = sectionPost.querySelectorAll('.buttonErase')
@@ -120,15 +138,16 @@ export const Home = (onNavigate) => {
 
 
         topPost.appendChild(postContent);
-        topPost.appendChild(buttonEdit);
+        //topPost.appendChild(buttonEdit);
         topPost.appendChild(buttonErase);
         postContainer.insertAdjacentElement('afterbegin', topPost);
         //postContainer.insertAdjacentElement('afterbegin', bottomPost);
         sectionPost.appendChild(postContainer);
     
       });
-    });
-  }
+    })
+  };
+
 
   postPublicar.appendChild(publicarButton);
 
@@ -146,4 +165,4 @@ export const Home = (onNavigate) => {
   HomeDiv.appendChild(bottomHomePage);
 
   return HomeDiv;
-};
+}
