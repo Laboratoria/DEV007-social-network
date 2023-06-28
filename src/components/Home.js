@@ -64,13 +64,10 @@ export const Home = (onNavigate) => {
   
 
    modalBtnHome.addEventListener('click', () => {
-    //const contenidoDelText = modalContentHome.querySelector('.textAreaModal');
-    //agregarUnNuevoPost(contenidoDelText.value, db, auth)
     agregarUnNuevoPost(textareaModal.value, db, auth)
       .then(() => {
         textareaModal.value = '';
         modalHome.style.display = 'none';
-        sectionPost.innerHTML = '';
         getData();
       })
       .catch((err) => {
@@ -91,19 +88,36 @@ export const Home = (onNavigate) => {
 
         const postContainer = document.createElement('div');
         postContainer.setAttribute('id', 'postContainer');
+
+        const topPost = document.createElement('section');
+        topPost.classList.add('topPost');
+
         const postContent = document.createElement('div');
         postContent.classList.add('postContent');
         postContent.setAttribute('id', postId);
         postContent.innerHTML = `<p>${post.contenido}</p>`;
-  
-        postContainer.insertAdjacentElement('afterbegin', postContent);
+
+        const buttonEdit = document.createElement('button');
+        buttonEdit.classList.add('buttonEdit');
+
+        const buttonErase = document.createElement('button');
+        buttonErase.classList.add('buttonErase');
+
+        //const bottomPost = document.createElement('section');
+        //bottomPost = classList.add('bottomPost');
+
+
+        topPost.appendChild(postContent);
+        topPost.appendChild(buttonEdit);
+        topPost.appendChild(buttonErase);
+        postContainer.insertAdjacentElement('afterbegin', topPost);
+        //postContainer.insertAdjacentElement('afterbegin', bottomPost);
         sectionPost.appendChild(postContainer);
     
       });
     });
   }
 
-  //sectionPost.appendChild(buttonsPost);
   postPublicar.appendChild(publicarButton);
 
   bottomHomePage.appendChild(postPublicar);

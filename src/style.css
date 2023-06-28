@@ -1017,6 +1017,18 @@ body {
       background-color: white;
     }
 
+    .buttonEdit{
+      border-color: #211715;
+      height: 26px;
+      border-radius: 100px;
+    }
+
+    .buttonErase{
+      border-color: #211715;
+      height: 26px;
+      border-radius: 100px;
+    }
+
     .buttonsPost{
       display: grid;
       grid-template-rows: 30% 30% 30%;
