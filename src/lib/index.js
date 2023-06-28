@@ -36,7 +36,6 @@ export const agregarUnNuevoPost = (contenido, db, auth) => {
 /*----------  PARA ENLISTAR Y MOSTRAR LOS POST----------*/
 export const getTask = () => getDocs(collection(db, 'post'));
 export const onGetTask = (callback) => onSnapshot(collection(db, 'post'), callback)
-//export const deletePost = (id) => deleteDoc(doc(db, 'task', id));
 
 /*----------  FUNCIONES PARA BORRAR POST----------*/
 export const deletePost = (postId) => {const postRef = doc(db, 'post', postId);
