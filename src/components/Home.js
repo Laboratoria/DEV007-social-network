@@ -1,7 +1,7 @@
 import { auth, db } from '../firebase';
 import { agregarUnNuevoPost } from '../lib';
 import { onGetTask } from '../lib';
-import { deleteTask } from '../lib';
+import { deletePost } from '../lib';
 
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -69,6 +69,7 @@ export const Home = (onNavigate) => {
       .then(() => {
         textareaModal.value = '';
         modalHome.style.display = 'none';
+        sectionPost.innerHTML = '';
         getData();
       })
       .catch((err) => {
@@ -78,35 +79,8 @@ export const Home = (onNavigate) => {
 
   
   window.addEventListener('DOMContentLoaded', async () => {
-<<<<<<< HEAD
-    const taskContainer = document.getElementById('postContent');
-    onGetTask((querySnapshot) => {
-      let html = '';
-    querySnapshot.forEach((doc) => {
-      const post = doc.data();
-      html += `
-      <div>
-      
-       <p>${post.contenido}</p>
-       <button class= 'btn-delete' data-id="${doc.id}">Delete</button>
-      </div>
-     `;
-    });
-    taskContainer.innerHTML = html;
-
-    const btnsDelete = taskContainer.querySelectorAll('.btn-delete')
-
-    btnsDelete.forEach(btn => {
-      btn.addEventListener('click', ({target: { dataset }}) => {
-          deleteTask(dataset.id)
-      })
-    })
-    
-    });
-
-=======
+    sectionPost.innerHTML = '';
     getData();
->>>>>>> 707c970243e27ba4ac3a757a0dd7bea5c8ca019a
   });
 
   const getData = () => {
@@ -126,28 +100,44 @@ export const Home = (onNavigate) => {
         postContent.setAttribute('id', postId);
         postContent.innerHTML = `<p>${post.contenido}</p>`;
 
-        const buttonEdit = document.createElement('button');
-        buttonEdit.classList.add('buttonEdit');
-        buttonEdit.textContent = 'Editar';
+        //const buttonEdit = document.createElement('button');
+        //buttonEdit.classList.add('buttonEdit');
+        //buttonEdit.textContent = 'Editar';
+        //buttonEdit.setAttribute('data-id', doc.id);
 
+      
         const buttonErase = document.createElement('button');
         buttonErase.classList.add('buttonErase');
         buttonErase.textContent = 'Borrar';
+        buttonErase.setAttribute('data-id', doc.id);
+        buttonErase.addEventListener('click', () => {
+          const postId = buttonErase.getAttribute('data-id');
+          deletePost(postId)
+            .then(() => {
+              sectionPost.innerHTML = '';
+              getData();
+            })
+            .catch((error) => {
+              console.log('Error al borrar el post:', error);
+            });
+    
+        });
 
         //const bottomPost = document.createElement('section');
         //bottomPost = classList.add('bottomPost');
 
 
         topPost.appendChild(postContent);
-        topPost.appendChild(buttonEdit);
+        //topPost.appendChild(buttonEdit);
         topPost.appendChild(buttonErase);
         postContainer.insertAdjacentElement('afterbegin', topPost);
         //postContainer.insertAdjacentElement('afterbegin', bottomPost);
         sectionPost.appendChild(postContainer);
     
       });
-    });
-  }
+    })
+  };
+
 
   postPublicar.appendChild(publicarButton);
 
@@ -165,4 +155,4 @@ export const Home = (onNavigate) => {
   HomeDiv.appendChild(bottomHomePage);
 
   return HomeDiv;
-};
+}
