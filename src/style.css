@@ -1017,6 +1017,11 @@ body {
       background-color: white;
     }
 
+    .topPost{
+      display: flex;
+
+    }
+
     .buttonEdit{
       border-color: #211715;
       height: 26px;
@@ -1027,6 +1032,7 @@ body {
       border-color: #211715;
       height: 26px;
       border-radius: 100px;
+      align-self: baseline;
     }
 
     .buttonsPost{
