@@ -1,10 +1,9 @@
 import { auth, db } from '../firebase';
-import { agregarUnNuevoPost, updatePost } from '../lib';
-import { onGetTask } from '../lib';
-import { deletePost } from '../lib';
-import {  getPost } from '../lib';
-
+import { agregarUnNuevoPost, onGetTask, deletePost } from '../lib';
+/*
 export const Home = (onNavigate) => {
+  */
+export const Home = () => {
   const HomeDiv = document.createElement('div');
   HomeDiv.classList.add('HomeDiv');
 
@@ -31,7 +30,7 @@ export const Home = (onNavigate) => {
   publicarButton.classList.add('publicarButton');
   publicarButton.textContent = '¿Qué estás pensando?';
 
-  publicarButton.addEventListener('click', function () {
+  publicarButton.addEventListener('click', () => {
     document.querySelector('.modalHome').style.display = 'flex';
   });
 
@@ -56,37 +55,17 @@ export const Home = (onNavigate) => {
   endModalHome.classList.add('endModalHome');
   endModalHome.innerHTML = '&times;';
 
-  endModalHome.addEventListener('click', function () {
+  endModalHome.addEventListener('click', () => {
     document.querySelector('.modalHome').style.display = 'none';
   });
 
   const sectionPost = document.createElement('section');
   sectionPost.classList.add('sectionPost');
 
-  
-
-   modalBtnHome.addEventListener('click', () => {
-    agregarUnNuevoPost(textareaModal.value, db, auth)
-      .then(() => {
-        textareaModal.value = '';
-        modalHome.style.display = 'none';
-        sectionPost.innerHTML = '';
-        getData();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
-
-  let editStatus = false;
-  let id = '';
-
-  window.addEventListener('DOMContentLoaded', async () => {
-    sectionPost.innerHTML = '';
-    getData();
-  });
-
   const getData = () => {
+    /*
+    función que crea el post y su contenedor y recorre el array de los post
+    */
     onGetTask((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const post = doc.data();
@@ -101,20 +80,20 @@ export const Home = (onNavigate) => {
         const postContent = document.createElement('div');
         postContent.classList.add('postContent');
         postContent.setAttribute('id', postId);
-        postContent.innerHTML = `<p>${post.contenido}</p>`;
+        postContent.innerHTML = `
+        <header>${post.usuario}</header>
+        <p>${post.contenido}</p>
+        `;
 
-        //const buttonEdit = document.createElement('button');
-        //buttonEdit.classList.add('buttonEdit');
-        //buttonEdit.textContent = 'Editar';
-        //buttonEdit.setAttribute('data-id', doc.id);
-        
+        /*        --------------borrar post----------------- 
+        */
         const buttonErase = document.createElement('button');
         buttonErase.classList.add('buttonErase');
         buttonErase.textContent = 'Borrar';
         buttonErase.setAttribute('data-id', doc.id);
         buttonErase.addEventListener('click', () => {
-          const postId = buttonErase.getAttribute('data-id');
-          deletePost(postId)
+          const postsId = buttonErase.getAttribute('data-id');
+          deletePost(postsId)
             .then(() => {
               sectionPost.innerHTML = '';
               getData();
@@ -122,7 +101,6 @@ export const Home = (onNavigate) => {
             .catch((error) => {
               console.log('Error al borrar el post:', error);
             });
-    
         });
 
 //botón de editar 
@@ -179,18 +157,41 @@ export const Home = (onNavigate) => {
 
           taskForm.reset();
         });
+        const bottomPost = document.createElement('section');
+        bottomPost.classList.add('bottomPost');
 
         topPost.appendChild(postContent);
-        //topPost.appendChild(buttonEdit);
-        topPost.appendChild(buttonErase);
+
+        bottomPost.appendChild(buttonEdit);
+        bottomPost.appendChild(buttonErase);
+
         postContainer.insertAdjacentElement('afterbegin', topPost);
-        //postContainer.insertAdjacentElement('afterbegin', bottomPost);
+        postContainer.appendChild(bottomPost);
         sectionPost.appendChild(postContainer);
-    
       });
-    })
+    });
   };
 
+  modalBtnHome.addEventListener('click', () => {
+    agregarUnNuevoPost(textareaModal.value, db, auth)
+      .then(() => {
+        textareaModal.value = '';
+        modalHome.style.display = 'none';
+        sectionPost.innerHTML = '';
+        getData();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  /*
+  ---------------mostrar post---------------- 
+  */
+  window.addEventListener('DOMContentLoaded', async () => {
+    sectionPost.innerHTML = '';
+    getData();
+  });
 
   postPublicar.appendChild(publicarButton);
 
@@ -208,4 +209,4 @@ export const Home = (onNavigate) => {
   HomeDiv.appendChild(bottomHomePage);
 
   return HomeDiv;
-}
+};
