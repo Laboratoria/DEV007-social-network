@@ -1,7 +1,8 @@
 import { auth, db } from '../firebase';
-import { agregarUnNuevoPost } from '../lib';
+import { agregarUnNuevoPost, updatePost } from '../lib';
 import { onGetTask } from '../lib';
 import { deletePost } from '../lib';
+import {  getPost } from '../lib';
 
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -77,7 +78,9 @@ export const Home = (onNavigate) => {
       });
   });
 
-  
+  let editStatus = false;
+  let id = '';
+
   window.addEventListener('DOMContentLoaded', async () => {
     sectionPost.innerHTML = '';
     getData();
@@ -104,8 +107,7 @@ export const Home = (onNavigate) => {
         //buttonEdit.classList.add('buttonEdit');
         //buttonEdit.textContent = 'Editar';
         //buttonEdit.setAttribute('data-id', doc.id);
-
-      
+        
         const buttonErase = document.createElement('button');
         buttonErase.classList.add('buttonErase');
         buttonErase.textContent = 'Borrar';
@@ -123,9 +125,60 @@ export const Home = (onNavigate) => {
     
         });
 
+//botón de editar 
+        
+         buttonEdit.forEach(btn => {
+          btn.addEventListener('click', async (e) => {
+            const doc = await getPost(e.target.dataset.id)
+            const task = doc.data()
+
+            taskForm['task-title'].value = task.title
+            taskForm['task-description'].value = task.description
+
+            editStatus = true;
+            id = e.target.dataset.id;
+          })
+         })
+            
+        const buttonEdit = document.createElement('button');
+        buttonEdit.classList.add('buttonEdit');
+        buttonEdit.textContent = 'Editar';
+        buttonEdit.setAttribute('data-id', doc.id);
+        buttonEdit.addEventListener('click', () => {
+          const postEd = buttonEdit.getAttribute('data-id');
+          editarPost(postEd)
+          .then(() => {
+            sectionPost.innerHTML = '';
+            getData();
+          } )
+          .catch((error) => {
+            console.log('Error al editar el post:', error);
+          });
+
+        })
         //const bottomPost = document.createElement('section');
         //bottomPost = classList.add('bottomPost');
+        taskForm.addEventListener("submit", (e) => {
+          e.preventDefault();
 
+          const title = taskForm["task-title"];
+          const description = taskForm["task-description"];
+          
+          if (!editStatus){
+            savePost(title.value, description.value);
+            
+          }else {
+            updatePost(id, {
+              title: title.value,
+              description: description.value,
+            });
+
+            editStatus = false;
+          }
+          
+
+          taskForm.reset();
+        });
 
         topPost.appendChild(postContent);
         //topPost.appendChild(buttonEdit);
