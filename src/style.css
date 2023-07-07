@@ -1,0 +1,481 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	/* font: inherit; */
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*----------------------*/
+
+ /*HOME*/
+ body {
+  background-color:  #F7EDE9;
+  font-family: 'Times New Roman', sans-serif;
+  margin: 3%;
+  border: 1px solid rgb(248, 248, 248);
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px 0px orangered;
+}
+
+.imgMain {
+  max-width: 99.8%;
+  border-radius: 7px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*padding: 7%; */
+  margin: 5px 5px 0px 5px;
+  padding: 8px 15px 0px 15px;
+}
+
+.logo {
+  max-width: 40%;
+}
+
+h1 { 
+  text-align: center;
+  font-size: 250%;
+  margin: 3%;
+  color: #443728;
+}
+
+p { 
+  font-size: 150%;
+  color: #443728;
+  text-align: justify;
+  font-style: italic;
+  padding-bottom: 7px;
+}
+
+.section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid rgb(248, 248, 248);
+  border-radius: 7px;
+  padding: 7%;
+  margin: 0 7% 7% 7%;
+  box-shadow: 0px 0px 5px 0px orangered;
+}
+
+.buttonsPrincipals {
+  width: 270px;
+  height: 36px;
+  margin: 3%;
+  border-radius: 8px;
+  border: 1px solid orangered; 
+  background-color:  rgb(248, 248, 248);
+  box-shadow: 0 0 5px orangered; 
+  font-size: 1.3em;
+  color: #443728;
+}  
+
+.googleSignIn {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row-reverse;
+  align-items: center;
+  font-size: 1rem;
+  background-color: white;
+  width: 270px;
+  height: 37px;
+  margin: 3%;
+  font-family: 'Roboto', sans-serif;
+  border: solid 0.0625rem;
+  border-color: white;
+  border-radius: 7px;
+  letter-spacing: 0.0625rem;
+}
+
+.googleIcon { 
+  width: 12%;
+}
+
+/*Registrarse / Inciciar Sesión*/
+
+.logo3 { 
+  width: 100%;
+}
+
+h2 { 
+  font-family: 'Times New Roman', sans-serif;
+  text-align: center;
+  font-size: 250%;
+  margin: 1.5%;
+  color: #443728;
+}
+
+label { 
+  font-size: 150%;
+  color: #443728;
+  font-weight: bold;
+  font-style: italic;
+}
+
+input { 
+  width: 270px;
+  height: 36px;
+  margin: 3%;
+  border: 1px solid orangered; 
+  background-color: rgba(251, 253, 253, 0.709);
+  border-radius: 5px;
+  text-align: center;
+  color:#443728;
+  font-size: 1.3em;
+  font-family: 'Times New Roman', sans-serif;
+}
+
+/*Posting*/
+
+.inspiration{
+text-align: center;
+}
+
+h4 {
+  font-size: 18px;
+  padding: 2%;
+}  
+
+.textTitle{
+  display: flex;
+  width: 88%;
+  border-radius: 5px;
+  padding: 3%;
+  margin: 3%;
+  height: 5px;
+}
+.textPost {
+  display: flex;
+  width: 88%;
+  border-radius: 8px;
+  padding: 3%;
+  margin: 3%;
+  height: 30px;
+}
+
+input::placeholder {
+  color:rgb(179, 176, 176);
+}
+
+.buttonsPrincipalsPost {
+  width: 270px;
+  height: 36px;
+  margin: 3%;
+  border-radius: 8px;
+  border: 1px solid orangered; 
+  background-color:  rgb(248, 248, 248);
+  box-shadow: 0 0 5px orangered; 
+  font-size: 1.3em;
+  color: #443728;
+  margin-left:15%;
+}  
+
+.disfruta{
+  text-align: center;
+  margin-top: 5px;
+}
+
+ /*aqui dpnde se imprimen las recetas*/
+.containerShowPost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: center;*/
+  height: 280px;
+  margin: 5px 5px 0px 5px;
+  padding: 5px 8px 5px 8px;
+  overflow-y: scroll;
+}
+.clasePost {
+  width: 100%;
+  padding: 3% 3% 3% 3%
+}
+
+.verpost {
+  background-color: white;
+  border-color:  rgb(248, 248, 248);
+  border: 1px solid orangered; 
+  padding: 3% 3% 0% 3%
+  }
+  
+h3 { 
+  font-family: 'Times New Roman', sans-serif;
+  text-align: center;
+  font-size: 25px;
+  margin: 1%;
+  color: #443728;
+}
+
+.Receta {
+  font-size: 20px;
+
+
+}
+
+.Autor {
+  font-size: 15px;
+  text-align: right;
+}
+
+/*Bototes de editar, borrar y likes*/
+
+.Botones {
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.btnDelete {
+  width: 70px;
+  height: 25px;
+  background-color: white;
+  border-radius: 7px;
+  border: 1px solid orangered; 
+  margin: 5px;
+}
+.btnEdit {
+  width: 70px;
+  height: 25px;
+  background-color: white;
+  border-radius: 7px;
+  border: 1px solid orangered; 
+  margin: 5px;
+}
+.btnLikes {
+  width: 80px;
+  height: 25px;
+  background-color: white;
+  border-radius: 7px;
+  border: 1px solid orangered; 
+  margin: 5px;
+  }
+  .likesCount { 
+    font-weight:bold
+  } 
+
+  /*Boton cerrar Sesion*/
+
+  .section3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgb(248, 248, 248);
+    border-radius: 7px;
+    padding: 2%;
+    margin: 4% 5% 4% 30%;
+    box-shadow: 0px 0px 5px 0px orangered;
+    width: 150px;
+    height: 20px;    
+  }
+
+/* Tablets, Ipads (portrait)*/
+@media (min-width: 768px) and (max-width: 1024px) { 
+  .buttonsPrincipalsPost {
+    display: flex;
+    float: center;
+    width: 270px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid orangered; 
+    background-color:  rgb(248, 248, 248);
+    box-shadow: 0 0 5px orangered; 
+    font-size: 1.3em;
+    color: #443728;
+    margin-left:50px;
+    margin-top: 5%;
+    margin-bottom: 8%;
+  } 
+  .section3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgb(248, 248, 248);
+    border-radius: 7px;
+    padding: 2%;
+    
+    box-shadow: 0px 0px 5px 0px orangered;
+    width: 150px;
+    height: 20px;    
+  }
+
+}
+
+/* Inicio Laptops, Desktops*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  *{
+    margin: 0;
+    padding: 0;
+  } 
+
+  html {
+    margin-top: 15%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border: 1px solid rgb(248, 248, 248);
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px 0px orangered;
+   
+  }
+
+  /*HOME*/
+  body {
+    background-color:  #F7EDE9;
+    font-family: 'Times New Roman', sans-serif;
+    display: flex;
+    align-items: center;    
+  } 
+
+  .imgMain{
+    display: flex;
+    max-width: 55%;
+    float: left;
+    margin-top: 30px;
+    margin-left: 2%;
+  }
+
+ .logo{
+    width: 20%;
+  }
+
+  h1{
+    font-size: 40px;
+  }
+
+  p{
+    font-size: 20px;
+  }
+
+  .section2{
+    margin-top: 8px;
+    max-width: 20%;
+    align-items: center;
+    height: 18px;
+    margin-left: 63%;
+    padding: auto;
+  }
+
+  .buttonsPrincipals {
+    width: 200px;
+  }
+
+  .googleSignIn {
+    width: 200px;
+  }
+
+  /* Registrarse e Inicio de secion*/
+
+  .imgMain1{
+    display: flex;
+    max-width: 55%;
+    float: left;
+    margin-top: 140px;
+    margin-left: 2%;
+  }  
+  
+  .logo3{
+    width: 95%;
+  }
+
+  /*Posting*/
+  .containerPosting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 5px 0px 5px;
+    padding: 8px 15px 0px 15px;
+    height: 400px;
+    overflow-y: scroll;
+  }
+  .textTitle{
+    height: 60px;
+    margin: 0px;
+  }
+  .textPost {
+    height: 120px;
+    margin: 0%;
+  }
+   
+  .containerShowPost {
+  height: 600px;
+  }
+
+  .buttonsPrincipalsPost {
+    width: 270px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid orangered; 
+    background-color:  rgb(248, 248, 248);
+    box-shadow: 0 0 5px orangered; 
+    font-size: 1.3em;
+    color: #443728;
+    margin-left:8%;
+    margin-top: 5%;
+    margin-bottom: 8%;
+  }  
+
+  h4 {
+    margin: 0px;
+    text-align: left;
+    }
+    
+    
+  .section3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgb(248, 248, 248);
+    border-radius: 7px;
+    padding: 2%;
+    margin: 2% 5% 2% 40%;
+    box-shadow: 0px 0px 5px 0px orangered;
+    width: 150px;
+    height: 20px;    
+  }
+
+}
