@@ -1,0 +1,297 @@
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+  text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Noto+Sans:wght@500&family=Roboto&display=swap');
+body {
+  background-color: #F6E7E6;
+  font-family: 'Baloo Da 2', cursive, system-ui;
+  font-size: 15px;
+}
+
+.wrapper{
+  width: 100%;
+}
+
+.logo-container{
+  display: flex;
+  justify-content: center;
+}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.introductory-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+}
+
+.register-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.disclaimer-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #FBF4F9;
+  border-radius: 5rem 5rem 0 0;
+  padding: 5rem 3rem 0 3rem;
+}
+
+main{
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #FBF4F9;
+  padding: 4rem 4rem 2rem 4rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.main-register{
+  border-radius: 5rem 5rem 0 0;
+}
+
+.register-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.home-button{
+  padding-bottom: 3rem;
+}
+
+h2{
+  font-size: 20px;
+}
+
+.introductory-container > p {
+  color: #444444;
+}
+
+.disclaimer-container-pic{
+  display: flex;
+  justify-content: center;
+}
+
+.login-section{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 0;
+  box-sizing: border-box;
+}
+
+.login{
+  font-size: 24px;
+}
+
+input{
+  background-color: transparent;
+  border: none;
+  color: #C4BCBD;
+  border-bottom: 1px solid #A39A9A;
+  height: 40px;
+  width: 100%;
+  padding-right: 30px;
+  box-sizing: border-box;
+  font-family: system-ui;
+}
+
+.input:focus{
+  background-color: transparent;
+  border-bottom: 3px solid #2970CA;
+}
+
+.forgot-password{
+  font-size: 14px;
+  color: #817C7C;
+}
+
+.continue{
+  text-align: end;
+}
+
+.continue > a{
+  color: #C4BCBD;
+}
+
+.button-container{
+  padding-top: 2rem;
+}
+
+.google-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 4rem 0 0 0; */
+  gap: 1rem;
+  color: #817C7C;
+}
+
+.google-button{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  width: 190px;
+  height: 24px;
+  padding: .5rem;
+  background-color: #FFFFFF;
+  color: #817C7C;
+  border-color: transparent;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  gap: 1.5rem;
+  font-weight: 700;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.37);
+}
+
+.google-icon{
+  width: 18px;
+}
+
+.login-button{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  color: #817C7C;
+  font-size: 12px;
+
+}
+
+.login-button > a {
+  font-weight: 600;
+  color: #817C7C;
+}
+
+footer{
+  background-color: #FBF4F9;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 3rem;
+  font-size: 14px;
+}
+
+footer > p {
+  color: #817C7C;
+}
+
+@media (min-width: 768px) {
+
+  .wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 4rem;
+  }
+
+  .disclaimer-wrapper{
+    background-color: transparent;
+    height: 400px;
+    width: 450px;
+    padding: 0;
+  }
+
+  main, .main-register{
+    border-radius: 5rem;
+    height: 400px;
+    width: 565px;
+  }
+
+  .register-wrapper{
+    flex-direction: row;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-button{
+    padding-bottom: 1rem;
+  }
+
+  .login-section{
+    padding: 0;
+  }
+
+  a:hover, button:hover{
+    cursor: pointer;
+  }
+
+  .google-button{
+    transition: all .3s;
+  }
+
+  /* Testing hover effect on Google button */
+  .google-button:hover{
+    background-color: #4285F4;
+    color: #FFFFFF;
+  }
+
+}
